@@ -1,88 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="W.Writes shares thoughtful Urdu quotes, English quotes, Urdu poetry, life realities and motivation — words that touch the heart.">
-<meta name="keywords" content="Urdu quotes, English quotes, Urdu poetry, life reality, motivation, W.Writes">
-<meta name="theme-color" content="#071e1b">
-<meta property="og:title" content="W.Writes | Words that touch the heart">
-<meta property="og:description" content="Discover Urdu quotes, English quotes, poetry, life realities and motivation.">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://wwrites.github.io/">
-<title>W.Writes | Urdu Quotes, Poetry & Motivation</title>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="W.Writes — Urdu and English quotes, poetry and motivation.">
+<meta name="theme-color" content="#06231d"><title>W.Writes | Words that touch the heart</title>
 <style>
-:root{--bg:#071e1b;--panel:#0d302b;--panel2:#103a33;--gold:#e8bd55;--cream:#fff8e8;--muted:#c6d0c7;--line:#d8b65a44}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Noto Nastaliq Urdu",serif;line-height:1.75}a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
-header{position:sticky;top:0;background:#071e1bef;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:5}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 0;flex-wrap:wrap}.brand{font-size:1.8rem;font-weight:bold;color:var(--gold);letter-spacing:.4px}.brand span{color:#fff}nav{display:flex;gap:15px;flex-wrap:wrap;font:.94rem Arial,sans-serif;color:var(--muted)}nav a:hover,nav a:focus{color:var(--gold)}button{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:8px 14px;border-radius:30px;cursor:pointer;font:inherit}button:hover{background:#e8bd5518}
-.hero{padding:82px 0 72px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#b88a2d33,transparent 55%),linear-gradient(145deg,#0b332d,#071e1b 65%)}.kicker{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font:.78rem Arial,sans-serif}h1{font-size:clamp(3rem,8vw,5.6rem);line-height:1.05;margin:12px 0;color:var(--cream)}.tag{font-size:1.25rem;color:var(--gold);margin:0 0 18px}.intro{max-width:680px;margin:0 auto 28px;color:var(--muted)}.cta{display:inline-block;background:var(--gold);color:#18231b;padding:11px 23px;border-radius:28px;font:bold .95rem Arial,sans-serif}
-section{padding:58px 0}.section-title{text-align:center;margin:0 0 8px;font-size:clamp(1.8rem,4vw,2.25rem);color:var(--gold)}.section-sub{text-align:center;color:var(--muted);margin:0 auto 28px;max-width:700px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:17px}.card{background:linear-gradient(145deg,var(--panel2),#0a2824);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 30px #0003;min-width:0}.card small{color:var(--gold);font:.72rem Arial,sans-serif;letter-spacing:1.3px;text-transform:uppercase}.quote{font-size:1.23rem;margin:12px 0;color:#fff}.urdu{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif;direction:rtl;text-align:right;line-height:2.15;font-size:1.38rem}.by{color:var(--gold);font:.8rem Arial,sans-serif}.categories .card{text-align:center;transition:transform .2s,border-color .2s}.categories .card:hover{transform:translateY(-4px);border-color:var(--gold)}.categories h3{margin:5px 0;color:var(--cream)}.categories p{color:var(--muted);margin:4px 0 12px}.category-link{display:inline-block;color:var(--gold);font: .85rem Arial,sans-serif;border-bottom:1px solid var(--gold);padding-bottom:3px}.about{max-width:760px;margin:auto;text-align:center;color:var(--muted)}.contact{text-align:center;background:#0b2a26;border-top:1px solid var(--line)}footer{padding:24px;text-align:center;color:var(--muted);font:.85rem Arial,sans-serif;border-top:1px solid #d5ad4a33}.urdu-section{direction:rtl}.urdu-section .section-sub{text-align:center}.urdu-section .by{direction:ltr;text-align:left}.note{font-size:.88rem;color:var(--muted);text-align:center;margin-top:22px}
-[lang="ur"] .nav, [lang="ur"] nav{font-family:Arial,sans-serif}[lang="ur"] .intro,[lang="ur"] .section-sub{line-height:2}.section-alt{background:#0a2824}
-@media(max-width:700px){.nav{justify-content:center}.brand{width:100%;text-align:center}nav{justify-content:center;gap:11px;font-size:.84rem}.hero{padding:62px 0 54px}section{padding:48px 0}.card{padding:19px}}
-</style>
-</head>
-<body>
-<header><div class="wrap nav">
-<a class="brand" href="#home"><span>W.</span>Writes</a>
-<nav aria-label="Main navigation">
-<a href="#home" data-en="Home" data-ur="صفحۂ اول">Home</a>
-<a href="#urdu-quotes" data-en="Urdu Quotes" data-ur="اردو اقوال">Urdu Quotes</a>
-<a href="#english-quotes" data-en="English Quotes" data-ur="انگریزی اقوال">English Quotes</a>
-<a href="#poetry" data-en="Poetry" data-ur="شاعری">Poetry</a>
-<a href="#life-reality" data-en="Life Reality" data-ur="زندگی کی حقیقت">Life Reality</a>
-<a href="#motivation" data-en="Motivation" data-ur="حوصلہ افزائی">Motivation</a>
-<a href="#about" data-en="About" data-ur="تعارف">About</a>
-</nav><button id="langBtn" type="button" aria-label="Switch language">اردو</button>
-</div></header>
+:root{--bg:#06231d;--panel:#10382f;--gold:#e8c04f;--cream:#f7f2e7;--muted:#c5d2cb;--line:#ffffff20}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#123b30,var(--bg) 60%);color:var(--cream);font:17px/1.7 Georgia,serif}
+header{position:sticky;top:0;background:#041d17f5;border-bottom:1px solid var(--line);z-index:5}.nav{max-width:1100px;margin:auto;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.logo{font-size:27px;font-weight:bold}.logo span,h2{color:var(--gold)}nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font:14px Arial,sans-serif;color:var(--muted)}a{color:inherit;text-decoration:none}nav a:hover{color:var(--gold)}button{cursor:pointer}.lang,.outline{background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:25px;padding:8px 15px}
+.hero{text-align:center;max-width:850px;margin:auto;padding:75px 20px}.eyebrow,.meta,.label{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:2px}.hero h1{font-size:clamp(48px,8vw,76px);line-height:1.1;margin:12px}.tagline{color:var(--gold);font-size:27px}.hero p{color:var(--muted);max-width:650px;margin:18px auto 28px}.btn{display:inline-block;background:var(--gold);color:#14251d;border:0;border-radius:28px;padding:12px 24px;font:bold 15px Arial,sans-serif}
+section{max-width:1100px;margin:auto;padding:40px 20px}.head{text-align:center;margin-bottom:25px}.head h2{font-size:clamp(28px,4vw,40px);margin:0 0 4px}.head p,.about,.contact{color:var(--muted)}
+.daily{max-width:740px;margin:auto;text-align:center;background:linear-gradient(135deg,#123d32,#0b2c25);border:1px solid var(--line);border-radius:20px;padding:25px}.daily blockquote{font-size:clamp(22px,3vw,29px);margin:15px 0}.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.tools{display:flex;gap:10px;max-width:760px;margin:0 auto 22px;flex-wrap:wrap}input,select{background:#092a23;color:var(--cream);border:1px solid var(--line);border-radius:11px;padding:12px;font:15px Arial,sans-serif}input{flex:1;min-width:200px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.quote,.category{background:linear-gradient(145deg,var(--panel),#0b3028);border:1px solid var(--line);border-radius:16px;padding:20px}.quote{display:flex;flex-direction:column;min-height:205px}.quote p{font-size:20px;flex:1;margin:13px 0}.urdu{direction:rtl;font-size:24px!important}.by{color:var(--gold);font-size:13px}.share{align-self:flex-start;margin-top:12px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.category{text-align:center;color:var(--cream)}.category strong{display:block}.category span{font:13px Arial,sans-serif;color:var(--muted)}.category:hover{background:#17483a}.about,.contact{text-align:center;max-width:780px}footer{text-align:center;border-top:1px solid var(--line);padding:24px;color:var(--muted);font:14px Arial,sans-serif}.empty{text-align:center;grid-column:1/-1;color:var(--muted);padding:20px}
+@media(max-width:700px){.nav{justify-content:center}.grid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}section{padding:32px 15px}.hero{padding:55px 18px}}
+@media(min-width:701px) and (max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="nav"><a class="logo" href="#home">W.<span>Writes</span></a><nav><a href="#home">Home</a><a href="#quotes">Quotes</a><a href="#categories">Categories</a><a href="#about">About</a><a href="#contact">Contact</a><button class="lang" id="langToggle">اردو</button></nav></div></header>
 <main>
-<section class="hero" id="home"><div class="wrap">
-<div class="kicker" data-en="A home for meaningful words" data-ur="معنی خیز الفاظ کا ایک خوبصورت گھر">A home for meaningful words</div>
-<h1>W.Writes</h1><p class="tag">Words that touch the heart.</p>
-<p class="intro" data-en="Discover thoughtful Urdu and English quotes, heartfelt poetry, life lessons and motivation to inspire your day." data-ur="اردو اور انگریزی کے خوبصورت اقوال، دل کو چھو لینے والی شاعری، زندگی کے سبق اور حوصلہ افزا تحریریں — آپ کے ہر دن کے لیے۔">Discover thoughtful Urdu and English quotes, heartfelt poetry, life lessons and motivation to inspire your day.</p>
-<a class="cta" href="#categories" data-en="Explore Sections" data-ur="تمام موضوعات دیکھیے">Explore Sections</a>
-</div></section>
-<section class="categories" id="categories"><div class="wrap">
-<h2 class="section-title" data-en="Explore W.Writes" data-ur="W.Writes کے موضوعات">Explore W.Writes</h2>
-<p class="section-sub" data-en="Choose a collection and find words that speak to your heart." data-ur="اپنی پسند کا موضوع منتخب کریں اور دل کی باتیں پڑھیے۔">Choose a collection and find words that speak to your heart.</p>
-<div class="grid">
-<div class="card"><h3 data-en="Urdu Quotes" data-ur="اردو اقوال">Urdu Quotes</h3><p data-en="Beautiful thoughts in our language." data-ur="ہماری زبان میں خوبصورت خیالات۔">Beautiful thoughts in our language.</p><a class="category-link" href="#urdu-quotes" data-en="Read quotes →" data-ur="اقوال پڑھیے ←">Read quotes →</a></div>
-<div class="card"><h3 data-en="English Quotes" data-ur="انگریزی اقوال">English Quotes</h3><p data-en="Words for every mood and moment." data-ur="ہر کیفیت اور ہر لمحے کے لیے الفاظ۔">Words for every mood and moment.</p><a class="category-link" href="#english-quotes" data-en="Read quotes →" data-ur="اقوال پڑھیے ←">Read quotes →</a></div>
-<div class="card"><h3 data-en="Urdu Poetry" data-ur="اردو شاعری">Urdu Poetry</h3><p data-en="Feelings shaped into verses." data-ur="احساسات جو اشعار بن جائیں۔">Feelings shaped into verses.</p><a class="category-link" href="#poetry" data-en="Read poetry →" data-ur="شاعری پڑھیے ←">Read poetry →</a></div>
-<div class="card"><h3 data-en="Life Reality" data-ur="زندگی کی حقیقتیں">Life Reality</h3><p data-en="Honest reminders about life." data-ur="زندگی کے سچے اور گہرے سبق۔">Honest reminders about life.</p><a class="category-link" href="#life-reality" data-en="Explore →" data-ur="دیکھیے ←">Explore →</a></div>
-<div class="card"><h3 data-en="Motivation" data-ur="حوصلہ افزائی">Motivation</h3><p data-en="A gentle push towards your goals." data-ur="آپ کے خوابوں کی طرف ایک حوصلہ افزا قدم۔">A gentle push towards your goals.</p><a class="category-link" href="#motivation" data-en="Get inspired →" data-ur="حوصلہ پائیے ←">Get inspired →</a></div>
-</div></div></section>
-<section id="urdu-quotes" class="urdu-section section-alt"><div class="wrap"><h2 class="section-title" data-en="Urdu Quotes" data-ur="اردو اقوال">Urdu Quotes</h2><p class="section-sub" data-en="Thoughts that express what the heart feels." data-ur="ایسے خیالات جو دل کی کیفیت بیان کریں۔">Thoughts that express what the heart feels.</p><div class="grid">
-<article class="card"><small>زندگی • Life</small><p class="quote urdu">ہر خاموش انسان کمزور نہیں ہوتا، کچھ لوگ اپنے درد کو لفظوں میں بیان کرنا چھوڑ دیتے ہیں۔</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>امید • Hope</small><p class="quote urdu">اندھیری رات کتنی ہی لمبی ہو، صبح کا راستہ نہیں روک سکتی۔</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>خودداری • Self-respect</small><p class="quote urdu">اپنی قدر پہچانیں، ہر دروازے پر دستک دینا ضروری نہیں ہوتا۔</p><div class="by">— W.Writes</div></article>
-</div></div></section>
-<section id="english-quotes"><div class="wrap"><h2 class="section-title" data-en="English Quotes" data-ur="انگریزی اقوال">English Quotes</h2><p class="section-sub" data-en="Simple words. Meaningful reminders." data-ur="سادہ الفاظ، زندگی کے خوبصورت سبق۔">Simple words. Meaningful reminders.</p><div class="grid">
-<article class="card"><small>Growth</small><p class="quote">Small steps every day lead to beautiful destinations.</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>Self-belief</small><p class="quote">Believe in your quiet progress; not every victory makes a sound.</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>Kindness</small><p class="quote">A kind heart leaves a mark that time cannot erase.</p><div class="by">— W.Writes</div></article>
-</div></div></section>
-<section id="poetry" class="section-alt urdu-section"><div class="wrap"><h2 class="section-title" data-en="Urdu Poetry" data-ur="اردو شاعری">Urdu Poetry</h2><p class="section-sub" data-en="Original short verses from W.Writes." data-ur="W.Writes کی جانب سے مختصر اصل اشعار۔">Original short verses from W.Writes.</p><div class="grid">
-<article class="card"><small>احساس • Feelings</small><p class="quote urdu">کچھ لفظ دل میں رہ جاتے ہیں<br>کچھ لوگ یادوں میں رہ جاتے ہیں</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>امید • Hope</small><p class="quote urdu">سفر کٹھن ہو تو ہمت نہ ہارنا<br>چراغ اکثر ہوا میں ہی جلتے ہیں</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>خاموشی • Silence</small><p class="quote urdu">خاموشیوں کی بھی اپنی زباں ہے<br>ہر بات کا لفظوں میں آنا ضروری نہیں</p><div class="by">— W.Writes</div></article>
-</div></div></section>
-<section id="life-reality"><div class="wrap"><h2 class="section-title" data-en="Life Reality" data-ur="زندگی کی حقیقتیں">Life Reality</h2><p class="section-sub" data-en="Gentle reminders about people, time and life." data-ur="لوگوں، وقت اور زندگی کے بارے میں چند سچی باتیں۔">Gentle reminders about people, time and life.</p><div class="grid">
-<article class="card"><small>Time</small><p class="quote">Time reveals what words sometimes hide.</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>Relationships</small><p class="quote">Not everyone who walks beside you understands your journey.</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>زندگی • Life</small><p class="quote urdu">زندگی ہمیشہ آسان نہیں ہوتی، مگر ہر مشکل کچھ نہ کچھ سکھا جاتی ہے۔</p><div class="by">— W.Writes</div></article>
-</div></div></section>
-<section id="motivation" class="section-alt"><div class="wrap"><h2 class="section-title" data-en="Motivation" data-ur="حوصلہ افزائی">Motivation</h2><p class="section-sub" data-en="A little encouragement for the next step." data-ur="آپ کے اگلے قدم کے لیے تھوڑی سی حوصلہ افزائی۔">A little encouragement for the next step.</p><div class="grid">
-<article class="card"><small>Keep going</small><p class="quote">You do not need to see the whole staircase. Take the next step.</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>حوصلہ • Courage</small><p class="quote urdu">رفتار چاہے دھیمی ہو، بس اپنے مقصد کی طرف چلتے رہیے۔</p><div class="by">— W.Writes</div></article>
-<article class="card"><small>New beginnings</small><p class="quote">Every sunrise is another chance to begin with hope.</p><div class="by">— W.Writes</div></article>
-</div></div></section>
-<section id="about"><div class="wrap"><h2 class="section-title" data-en="About W.Writes" data-ur="W.Writes کے بارے میں">About W.Writes</h2><p class="about" data-en="W.Writes is a home for meaningful Urdu and English quotes, heartfelt poetry, life reflections and motivation. Our purpose is simple: to share original words that inspire, comfort and connect people." data-ur="W.Writes اردو اور انگریزی اقوال، دل کو چھو لینے والی شاعری، زندگی کی حقیقتوں اور حوصلہ افزا تحریروں کا ایک خوبصورت پلیٹ فارم ہے۔ ہمارا مقصد ایسے الفاظ بانٹنا ہے جو حوصلہ دیں، سکون پہنچائیں اور لوگوں کو جوڑیں۔">W.Writes is a home for meaningful Urdu and English quotes, heartfelt poetry, life reflections and motivation. Our purpose is simple: to share original words that inspire, comfort and connect people.</p></div></section>
-<section class="contact" id="contact"><div class="wrap"><h2 class="section-title" data-en="Stay Connected" data-ur="ہم سے جڑے رہیے">Stay Connected</h2><p class="section-sub" data-en="Follow W.Writes and share your favourite words with someone who needs them." data-ur="W.Writes سے جڑے رہیے اور اپنے پسندیدہ الفاظ کسی ایسے شخص کے ساتھ شیئر کریں جسے ان کی ضرورت ہو۔">Follow W.Writes and share your favourite words with someone who needs them.</p><a class="cta" href="https://wwrites.github.io/" data-en="Visit W.Writes" data-ur="W.Writes دیکھیے">Visit W.Writes</a></div></section>
-</main>
-<footer>© <span id="year"></span> W.Writes · Words that touch the heart.</footer>
+<section class="hero" id="home"><div class="eyebrow">A HOME FOR MEANINGFUL WORDS</div><h1>W.Writes</h1><div class="tagline">Words that touch the heart.</div><p>Discover thoughtful Urdu and English quotes, poetry and motivation to inspire your day.</p><a class="btn" href="#quotes">Explore Quotes</a></section>
+<section id="daily"><div class="head"><h2>Daily Quote</h2><p>A fresh thought to carry with you today.</p></div><div class="daily"><div class="label">TODAY'S THOUGHT · W.WRITES</div><blockquote id="dailyText"></blockquote><div class="by">— W.Writes</div><div class="actions"><button class="outline" id="dailyShare">Share quote</button><button class="outline" id="dailyCopy">Copy quote</button></div></div></section>
+<section id="quotes"><div class="head"><h2>Words to Remember</h2><p>Find the words you need, when you need them.</p></div><div class="tools"><input id="search" type="search" placeholder="Search quotes / اقوال تلاش کریں..."><select id="language"><option value="all">All languages</option><option>English</option><option>Urdu</option></select><select id="category"><option value="all">All categories</option><option>Life</option><option>Hope</option><option>Love</option><option>Growth</option><option>Motivation</option><option>Poetry</option></select></div><div class="grid" id="quoteGrid" aria-live="polite"></div></section>
+<section id="categories"><div class="head"><h2>Explore by Category</h2><p>Choose a feeling, find the words.</p></div><div class="categories">
+<button class="category" data-cat="Life"><strong>Urdu Quotes</strong><span>Thoughts in our beautiful language</span></button><button class="category" data-cat="Growth"><strong>English Quotes</strong><span>Words for every mood</span></button><button class="category" data-cat="Poetry"><strong>Poetry</strong><span>Feelings shaped into lines</span></button><button class="category" data-cat="Motivation"><strong>Motivation</strong><span>A gentle push towards your goals</span></button></div></section>
+<section id="about" class="about"><div class="head"><h2>About W.Writes</h2></div><p>W.Writes is a home for meaningful words in Urdu and English. Our purpose is simple: to share words that inspire, comfort and connect people.</p></section>
+<section id="contact" class="contact"><div class="head"><h2>Stay Connected</h2><p>Follow W.Writes and share the words that matter.</p></div><p>For feedback, collaborations and suggestions, contact us by email.</p><a class="btn" href="mailto:YOUR-EMAIL@gmail.com?subject=W.Writes%20Website">Email W.Writes</a><p style="font-size:13px">Replace YOUR-EMAIL@gmail.com in this file with your real email address.</p></section>
+</main><footer>© <span id="year"></span> W.Writes · Words that touch the heart.</footer>
 <script>
-let urdu=false;const btn=document.getElementById('langBtn');
-btn.addEventListener('click',()=>{urdu=!urdu;document.documentElement.lang=urdu?'ur':'en';document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=urdu?el.dataset.ur:el.dataset.en});btn.textContent=urdu?'English':'اردو';});
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-</body></html>
+const quotes=[
+{lang:"Urdu",cat:"Life",text:"ہر خاموش انسان کمزور نہیں ہوتا، کچھ لوگ اپنے درد کو لفظوں میں بیان کرنا چھوڑ دیتے ہیں۔"},
+{lang:"English",cat:"Growth",text:"Small steps every day lead to beautiful destinations."},
+{lang:"Urdu",cat:"Hope",text:"اندھیری رات کے بعد روشن صبح ضرور آتی ہے۔"},
+{lang:"English",cat:"Motivation",text:"Your future is created by what you do today, not tomorrow."},
+{lang:"Urdu",cat:"Love",text:"محبت صرف لفظ نہیں، احساس اور خلوص کا نام ہے۔"},
+{lang:"English",cat:"Life",text:"Be the reason someone believes in the goodness of people."},
+{lang:"Urdu",cat:"Motivation",text:"کامیابی اُنہی کو ملتی ہے جو مشکل وقت میں بھی ہمت نہیں ہارتے۔"},
+{lang:"English",cat:"Hope",text:"Even the darkest night will end and the sun will rise."},
+{lang:"Urdu",cat:"Poetry",text:"دل میں امید کا چراغ جلائے رکھنا، وقت بدلتے دیر نہیں لگتی۔"},
+{lang:"English",cat:"Love",text:"A kind heart leaves a beautiful mark wherever it goes."},
+{lang:"Urdu",cat:"Growth",text:"اپنی قدر پہچانیے، ہر شخص آپ کی کہانی نہیں سمجھ سکتا۔"},
+{lang:"English",cat:"Poetry",text:"Some feelings are too deep for words, yet the heart understands."}
+];
+const grid=document.getElementById('quoteGrid'),search=document.getElementById('search'),language=document.getElementById('language'),category=document.getElementById('category');
+function share(text){if(navigator.share){navigator.share({title:'W.Writes Quote',text:text+' — W.Writes',url:location.href}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(text+' — W.Writes').then(()=>alert('Quote copied. Paste it anywhere to share.'));}else alert(text);}
+function render(){const q=search.value.trim().toLowerCase();const list=quotes.filter(x=>(language.value==='all'||x.lang===language.value)&&(category.value==='all'||x.cat===category.value)&&(!q||(x.text+' '+x.cat+' '+x.lang).toLowerCase().includes(q)));grid.innerHTML='';if(!list.length){grid.innerHTML='<div class="empty">No quotes found. Try another search.</div>';return;}list.forEach(x=>{const card=document.createElement('article');card.className='quote';const m=document.createElement('div');m.className='meta';m.textContent=x.lang+' · '+x.cat;const p=document.createElement('p');p.textContent=x.text;if(x.lang==='Urdu')p.className='urdu';const by=document.createElement('div');by.className='by';by.textContent='— W.Writes';const b=document.createElement('button');b.className='outline share';b.textContent='Share';b.addEventListener('click',()=>share(x.text));card.append(m,p,by,b);grid.append(card);});}
+[search,language,category].forEach(el=>el.addEventListener(el===search?'input':'change',render));
+document.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{category.value=b.dataset.cat;render();document.getElementById('quotes').scrollIntoView();}));
+const day=Math.floor(Date.UTC(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())/86400000),daily=quotes[day%quotes.length];document.getElementById('dailyText').textContent=daily.text;if(daily.lang==='Urdu')document.getElementById('dailyText').className='urdu';
+document.getElementById('dailyShare').onclick=()=>share(daily.text);document.getElementById('dailyCopy').onclick=()=>{if(navigator.clipboard)navigator.clipboard.writeText(daily.text+' — W.Writes').then(()=>alert('Quote copied!'));else alert(daily.text);};
+document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('langToggle').onclick=()=>{language.value=language.value==='Urdu'?'all':'Urdu';render();document.getElementById('quotes').scrollIntoView();};render();
+</script></body></html>
