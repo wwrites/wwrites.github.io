@@ -1,52 +1,158 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="W.Writes — Urdu and English quotes, poetry and motivation.">
-<meta name="theme-color" content="#06231d"><title>W.Writes | Words that touch the heart</title>
+
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="W.Writes - Urdu and English poetry, love quotes, sad poetry, life realities and motivational words.">
+<meta name="theme-color" content="#10251f">
+<title>W.Writes | الفاظ جو دل میں اتر جائیں</title>
 <style>
-:root{--bg:#06231d;--panel:#10382f;--gold:#e8c04f;--cream:#f7f2e7;--muted:#c5d2cb;--line:#ffffff20}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#123b30,var(--bg) 60%);color:var(--cream);font:17px/1.7 Georgia,serif}
-header{position:sticky;top:0;background:#041d17f5;border-bottom:1px solid var(--line);z-index:5}.nav{max-width:1100px;margin:auto;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.logo{font-size:27px;font-weight:bold}.logo span,h2{color:var(--gold)}nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font:14px Arial,sans-serif;color:var(--muted)}a{color:inherit;text-decoration:none}nav a:hover{color:var(--gold)}button{cursor:pointer}.lang,.outline{background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:25px;padding:8px 15px}
-.hero{text-align:center;max-width:850px;margin:auto;padding:75px 20px}.eyebrow,.meta,.label{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:2px}.hero h1{font-size:clamp(48px,8vw,76px);line-height:1.1;margin:12px}.tagline{color:var(--gold);font-size:27px}.hero p{color:var(--muted);max-width:650px;margin:18px auto 28px}.btn{display:inline-block;background:var(--gold);color:#14251d;border:0;border-radius:28px;padding:12px 24px;font:bold 15px Arial,sans-serif}
-section{max-width:1100px;margin:auto;padding:40px 20px}.head{text-align:center;margin-bottom:25px}.head h2{font-size:clamp(28px,4vw,40px);margin:0 0 4px}.head p,.about,.contact{color:var(--muted)}
-.daily{max-width:740px;margin:auto;text-align:center;background:linear-gradient(135deg,#123d32,#0b2c25);border:1px solid var(--line);border-radius:20px;padding:25px}.daily blockquote{font-size:clamp(22px,3vw,29px);margin:15px 0}.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.tools{display:flex;gap:10px;max-width:760px;margin:0 auto 22px;flex-wrap:wrap}input,select{background:#092a23;color:var(--cream);border:1px solid var(--line);border-radius:11px;padding:12px;font:15px Arial,sans-serif}input{flex:1;min-width:200px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.quote,.category{background:linear-gradient(145deg,var(--panel),#0b3028);border:1px solid var(--line);border-radius:16px;padding:20px}.quote{display:flex;flex-direction:column;min-height:205px}.quote p{font-size:20px;flex:1;margin:13px 0}.urdu{direction:rtl;font-size:24px!important}.by{color:var(--gold);font-size:13px}.share{align-self:flex-start;margin-top:12px}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.category{text-align:center;color:var(--cream)}.category strong{display:block}.category span{font:13px Arial,sans-serif;color:var(--muted)}.category:hover{background:#17483a}.about,.contact{text-align:center;max-width:780px}footer{text-align:center;border-top:1px solid var(--line);padding:24px;color:var(--muted);font:14px Arial,sans-serif}.empty{text-align:center;grid-column:1/-1;color:var(--muted);padding:20px}
-@media(max-width:700px){.nav{justify-content:center}.grid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}section{padding:32px 15px}.hero{padding:55px 18px}}
-@media(min-width:701px) and (max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}}
-</style></head><body>
-<header><div class="nav"><a class="logo" href="#home">W.<span>Writes</span></a><nav><a href="#home">Home</a><a href="#quotes">Quotes</a><a href="#categories">Categories</a><a href="#about">About</a><a href="#contact">Contact</a><button class="lang" id="langToggle">اردو</button></nav></div></header>
-<main>
-<section class="hero" id="home"><div class="eyebrow">A HOME FOR MEANINGFUL WORDS</div><h1>W.Writes</h1><div class="tagline">Words that touch the heart.</div><p>Discover thoughtful Urdu and English quotes, poetry and motivation to inspire your day.</p><a class="btn" href="#quotes">Explore Quotes</a></section>
-<section id="daily"><div class="head"><h2>Daily Quote</h2><p>A fresh thought to carry with you today.</p></div><div class="daily"><div class="label">TODAY'S THOUGHT · W.WRITES</div><blockquote id="dailyText"></blockquote><div class="by">— W.Writes</div><div class="actions"><button class="outline" id="dailyShare">Share quote</button><button class="outline" id="dailyCopy">Copy quote</button></div></div></section>
-<section id="quotes"><div class="head"><h2>Words to Remember</h2><p>Find the words you need, when you need them.</p></div><div class="tools"><input id="search" type="search" placeholder="Search quotes / اقوال تلاش کریں..."><select id="language"><option value="all">All languages</option><option>English</option><option>Urdu</option></select><select id="category"><option value="all">All categories</option><option>Life</option><option>Hope</option><option>Love</option><option>Growth</option><option>Motivation</option><option>Poetry</option></select></div><div class="grid" id="quoteGrid" aria-live="polite"></div></section>
-<section id="categories"><div class="head"><h2>Explore by Category</h2><p>Choose a feeling, find the words.</p></div><div class="categories">
-<button class="category" data-cat="Life"><strong>Urdu Quotes</strong><span>Thoughts in our beautiful language</span></button><button class="category" data-cat="Growth"><strong>English Quotes</strong><span>Words for every mood</span></button><button class="category" data-cat="Poetry"><strong>Poetry</strong><span>Feelings shaped into lines</span></button><button class="category" data-cat="Motivation"><strong>Motivation</strong><span>A gentle push towards your goals</span></button></div></section>
-<section id="about" class="about"><div class="head"><h2>About W.Writes</h2></div><p>W.Writes is a home for meaningful words in Urdu and English. Our purpose is simple: to share words that inspire, comfort and connect people.</p></section>
-<section id="contact" class="contact"><div class="head"><h2>Stay Connected</h2><p>Follow W.Writes and share the words that matter.</p></div><p>For feedback, collaborations and suggestions, contact us by email.</p><a class="btn" href="mailto:wwrts57@gmail.com?subject=W.Writes%20Website">Email W.Writes</a><p style="font-size:13px">Replace wwrts57@gmail.com in this file with your real email address.</p></section>
-</main><footer>© <span id="year"></span> W.Writes · Words that touch the heart.</footer>
+:root{--bg:#f7f5ef;--green:#173b30;--gold:#c49b55;--ink:#26332d;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Nastaliq Urdu",sans-serif;line-height:1.8}
+header{background:linear-gradient(135deg,#10251f,#28513e);color:white;text-align:center;padding:42px 16px 30px}
+.logo{font-family:Georgia,serif;font-size:42px;font-weight:bold;letter-spacing:2px;color:#e4c17d}
+.tagline{font-size:19px;color:#f5e8ce;margin:4px}
+header p{color:#e0e8df;margin:8px}
+nav{background:#fff;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:13px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0001}
+nav a{color:var(--green);text-decoration:none;font-weight:bold;padding:5px 10px;font-size:14px}
+main{max-width:1050px;margin:auto;padding:20px 15px}
+.hero{text-align:center;padding:30px 12px}
+.hero h1{color:var(--green);font-size:30px;margin:5px}
+.hero p{color:#65736b}
+.daily{background:linear-gradient(135deg,#173b30,#315b46);color:white;text-align:center;padding:28px 18px;border-radius:18px;margin:15px 0 30px}
+.daily h2{color:#e4c17d;margin:0 0 12px}
+.daily .quote{font-size:23px;line-height:2}
+button{cursor:pointer;border:0;border-radius:22px;padding:10px 17px;background:var(--gold);color:#182b22;font-weight:bold;margin:5px}
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;font-size:16px;margin:12px 0 20px}
+.section-title{text-align:center;color:var(--green);font-size:25px;margin:35px 0 18px}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:7px}
+.filters button{background:#e8e5d9}
+.filters button.active{background:var(--green);color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
+.card{background:white;padding:20px;border-radius:15px;box-shadow:0 5px 18px #172c2010;border:1px solid #eee}
+.card h3{color:#9a753b;margin:0 0 10px}
+.card .quote{font-size:19px;line-height:2}
+.card .english{font-size:16px;line-height:1.7}
+.actions{border-top:1px solid #eee;margin-top:12px;padding-top:8px}
+.actions button{font-size:12px;padding:8px 12px}
+.info{background:white;padding:25px;border-radius:16px;margin:25px 0;text-align:center}
+.info h2{color:var(--green)}
+.info a{color:#89662f}
+footer{background:#10251f;color:#eee;text-align:center;padding:25px 12px;margin-top:35px}
+footer a{color:#e4c17d}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">W.Writes</div>
+<div class="tagline" dir="rtl">الفاظ جو دل میں اتر جائیں۔</div>
+<p>Urdu & English Poetry | Quotes | Thoughts</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#daily">Daily Quote</a>
+<a href="#quotes">Quotes</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<main id="home">
+<section class="hero">
+<h1>Welcome to W.Writes</h1>
+<p dir="rtl">الفاظ، احساسات اور زندگی کی خوبصورت حقیقتوں کی دنیا میں خوش آمدید۔</p>
+<p>A place where words express what hearts feel.</p>
+</section>
+
+<section class="daily" id="daily">
+<h2>✦ Today's Thought ✦</h2>
+<div class="quote" dir="rtl">ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔</div>
+<button onclick="copyText('ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔')">Copy Quote</button>
+<button onclick="shareText('ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔')">Share Quote</button>
+</section>
+
+<section id="quotes">
+<h2 class="section-title">Explore Our Words</h2>
+<input class="search" id="search" type="search" placeholder="Search Urdu or English quotes..." oninput="render()">
+<div class="filters">
+<button class="active" onclick="setCategory('All',this)">All</button>
+<button onclick="setCategory('Love',this)">Love</button>
+<button onclick="setCategory('Sad',this)">Sad Poetry</button>
+<button onclick="setCategory('Life',this)">Life Reality</button>
+<button onclick="setCategory('Motivation',this)">Motivation</button>
+<button onclick="setCategory('Poetry',this)">Urdu Poetry</button>
+</div>
+<div class="grid" id="quoteGrid"></div>
+</section>
+
+<section class="info" id="about">
+<h2>About W.Writes</h2>
+<p dir="rtl">W.Writes ایک ایسا پلیٹ فارم ہے جہاں محبت، اداسی، زندگی کی حقیقتوں اور امید کے احساسات کو خوبصورت الفاظ میں بیان کیا جاتا ہے۔ ہمارا مقصد ایسے الفاظ شیئر کرنا ہے جو دل کو چھو جائیں اور سوچ میں مثبت تبدیلی لائیں۔</p>
+<p>Our mission is to inspire hearts through meaningful words, poetry and daily thoughts.</p>
+</section>
+
+<section class="info" id="contact">
+<h2>Stay Connected</h2>
+<p dir="rtl">اپنی رائے، تجاویز یا سوالات ہمارے ساتھ شیئر کریں۔</p>
+<p>Email: <a href="mailto:wwrts57@gmail.com">wwrts57@gmail.com</a></p>
+<p>Follow W.Writes on social media for daily poetry and quotes.</p>
+</section>
+</main>
+
+<footer>
+<div class="logo">W.Writes</div>
+<p dir="rtl">الفاظ جو دل میں اتر جائیں۔</p>
+<p>© <span id="year"></span> W.Writes. All Rights Reserved.</p>
+<a href="#home">Back to Top ↑</a>
+</footer>
+
 <script>
 const quotes=[
-{lang:"Urdu",cat:"Life",text:"ہر خاموش انسان کمزور نہیں ہوتا، کچھ لوگ اپنے درد کو لفظوں میں بیان کرنا چھوڑ دیتے ہیں۔"},
-{lang:"English",cat:"Growth",text:"Small steps every day lead to beautiful destinations."},
-{lang:"Urdu",cat:"Hope",text:"اندھیری رات کے بعد روشن صبح ضرور آتی ہے۔"},
-{lang:"English",cat:"Motivation",text:"Your future is created by what you do today, not tomorrow."},
-{lang:"Urdu",cat:"Love",text:"محبت صرف لفظ نہیں، احساس اور خلوص کا نام ہے۔"},
-{lang:"English",cat:"Life",text:"Be the reason someone believes in the goodness of people."},
-{lang:"Urdu",cat:"Motivation",text:"کامیابی اُنہی کو ملتی ہے جو مشکل وقت میں بھی ہمت نہیں ہارتے۔"},
-{lang:"English",cat:"Hope",text:"Even the darkest night will end and the sun will rise."},
-{lang:"Urdu",cat:"Poetry",text:"دل میں امید کا چراغ جلائے رکھنا، وقت بدلتے دیر نہیں لگتی۔"},
-{lang:"English",cat:"Love",text:"A kind heart leaves a beautiful mark wherever it goes."},
-{lang:"Urdu",cat:"Growth",text:"اپنی قدر پہچانیے، ہر شخص آپ کی کہانی نہیں سمجھ سکتا۔"},
-{lang:"English",cat:"Poetry",text:"Some feelings are too deep for words, yet the heart understands."}
+{cat:"Love",lang:"ur",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
+{cat:"Love",lang:"en",text:"True love is felt in little things, not only in big promises."},
+{cat:"Sad",lang:"ur",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
+{cat:"Sad",lang:"en",text:"Sometimes silence carries the loudest emotions."},
+{cat:"Life",lang:"ur",text:"زندگی ہمیشہ آسان نہیں ہوتی، مگر ہر دن کچھ سکھا جاتا ہے۔"},
+{cat:"Life",lang:"en",text:"Life teaches lessons that no book can explain."},
+{cat:"Motivation",lang:"ur",text:"منزل انہی کو ملتی ہے جو ہمت نہیں ہارتے۔"},
+{cat:"Motivation",lang:"en",text:"Your future is created by what you do today."},
+{cat:"Poetry",lang:"ur",text:"خاموش لبوں پہ بھی اک داستان ہوتی ہے، ہر مسکراہٹ کے پیچھے ایک جان ہوتی ہے۔"},
+{cat:"Poetry",lang:"ur",text:"وقت بدلتا ہے، حالات بدلتے ہیں، بس انسان کو امید نہیں چھوڑنی چاہیے۔"},
+{cat:"Love",lang:"ur",text:"کچھ لوگ دل میں اس طرح اتر جاتے ہیں کہ پھر کبھی نہیں نکلتے۔"},
+{cat:"Motivation",lang:"en",text:"Small steps every day lead to beautiful destinations."},
+{cat:"Life",lang:"ur",text:"اپنی قدر پہچانو، ہر کسی کی رائے تمہاری حقیقت نہیں ہوتی۔"},
+{cat:"Sad",lang:"ur",text:"کبھی کبھی سب کچھ کہنے کے لیے خاموش رہنا پڑتا ہے۔"},
+{cat:"Poetry",lang:"en",text:"Some feelings are too deep for words, yet the heart understands."}
 ];
-const grid=document.getElementById('quoteGrid'),search=document.getElementById('search'),language=document.getElementById('language'),category=document.getElementById('category');
-function share(text){if(navigator.share){navigator.share({title:'W.Writes Quote',text:text+' — W.Writes',url:location.href}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(text+' — W.Writes').then(()=>alert('Quote copied. Paste it anywhere to share.'));}else alert(text);}
-function render(){const q=search.value.trim().toLowerCase();const list=quotes.filter(x=>(language.value==='all'||x.lang===language.value)&&(category.value==='all'||x.cat===category.value)&&(!q||(x.text+' '+x.cat+' '+x.lang).toLowerCase().includes(q)));grid.innerHTML='';if(!list.length){grid.innerHTML='<div class="empty">No quotes found. Try another search.</div>';return;}list.forEach(x=>{const card=document.createElement('article');card.className='quote';const m=document.createElement('div');m.className='meta';m.textContent=x.lang+' · '+x.cat;const p=document.createElement('p');p.textContent=x.text;if(x.lang==='Urdu')p.className='urdu';const by=document.createElement('div');by.className='by';by.textContent='— W.Writes';const b=document.createElement('button');b.className='outline share';b.textContent='Share';b.addEventListener('click',()=>share(x.text));card.append(m,p,by,b);grid.append(card);});}
-[search,language,category].forEach(el=>el.addEventListener(el===search?'input':'change',render));
-document.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{category.value=b.dataset.cat;render();document.getElementById('quotes').scrollIntoView();}));
-const day=Math.floor(Date.UTC(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())/86400000),daily=quotes[day%quotes.length];document.getElementById('dailyText').textContent=daily.text;if(daily.lang==='Urdu')document.getElementById('dailyText').className='urdu';
-document.getElementById('dailyShare').onclick=()=>share(daily.text);document.getElementById('dailyCopy').onclick=()=>{if(navigator.clipboard)navigator.clipboard.writeText(daily.text+' — W.Writes').then(()=>alert('Quote copied!'));else alert(daily.text);};
-document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('langToggle').onclick=()=>{language.value=language.value==='Urdu'?'all':'Urdu';render();document.getElementById('quotes').scrollIntoView();};render();
-</script></body></html>
+let category="All";
+function setCategory(c,b){
+category=c;
+document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+render();
+}
+function render(){
+const term=document.getElementById("search").value.toLowerCase();
+const list=quotes.filter(q=>(category==="All"||q.cat===category)&&q.text.toLowerCase().includes(term));
+document.getElementById("quoteGrid").innerHTML=list.map(q=>{
+const safe=q.text.replace(/'/g,"\\'");
+return `<article class="card"><h3>${q.cat}</h3><div class="${q.lang==="ur"?"quote":"english"}" ${q.lang==="ur"?'dir="rtl"':''}>${q.text}</div><div class="actions"><button onclick="copyText('${safe}')">Copy</button><button onclick="shareText('${safe}')">Share</button></div></article>`;
+}).join("")||"<p>No quotes found. Try another search.</p>";
+}
+function copyText(t){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>alert("Quote copied!")).catch(()=>alert(t));}
+else{alert(t);}
+}
+function shareText(t){
+if(navigator.share){navigator.share({title:"W.Writes",text:t,url:location.href}).catch(()=>{});}
+else{copyText(t);}
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
