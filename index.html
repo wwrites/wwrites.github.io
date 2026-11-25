@@ -44,6 +44,22 @@ button{cursor:pointer;border:0;border-radius:22px;padding:10px 17px;background:v
 footer{background:#10251f;color:#eee;text-align:center;padding:25px 12px;margin-top:35px}
 footer a{color:#e4c17d}
 .hidden{display:none}
+  
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
 </style>
 </head>
 <body>
