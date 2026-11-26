@@ -1,344 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="ur">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>W.Writes | Urdu Poetry, Islamic Words & Stories</title>
-
-<meta name="description" content="Explore Urdu poetry, love quotes, sad poetry, Islamic words, inspirational thoughts and meaningful Urdu stories at W.Writes.">
-<meta name="keywords" content="W.Writes, Urdu Poetry, Islamic Words, Urdu Stories, Love Poetry, Sad Poetry, Urdu Quotes, Motivation">
-<meta name="author" content="W.Writes">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#10251f">
-
-<link rel="canonical" href="https://wwrites.github.io/">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="W.Writes | Poetry, Islamic Words & Stories">
-<meta property="og:description" content="Beautiful Urdu poetry, Islamic reminders, quotes and meaningful stories.">
-<meta property="og:url" content="https://wwrites.github.io/">
-<meta property="og:site_name" content="W.Writes">
-<meta property="og:locale" content="ur_PK">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="W.Writes | Poetry & Stories">
-<meta name="twitter:description" content="Urdu poetry, Islamic words, stories and inspirational thoughts.">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EPP1H5PETB"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-EPP1H5PETB');
-</script>
-
-<style>
-:root{
---bg:#f7f5ef;
---green:#173b30;
---gold:#c49b55;
---ink:#26332d;
---white:#fff
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-background:var(--bg);
-color:var(--ink);
-font-family:Arial,"Noto Nastaliq Urdu",sans-serif;
-line-height:1.8
-}
-
-header{
-background:linear-gradient(135deg,#10251f,#28513e);
-color:white;
-text-align:center;
-padding:42px 16px 30px
-}
-
-.logo{
-font-family:Georgia,serif;
-font-size:42px;
-font-weight:bold;
-letter-spacing:2px;
-color:#e4c17d
-}
-
-.tagline{
-font-size:19px;
-color:#f5e8ce;
-margin:4px
-}
-
-header p{color:#e0e8df;margin:8px}
-
-nav{
-background:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-gap:8px;
-padding:13px;
-position:sticky;
-top:0;
-z-index:5;
-box-shadow:0 2px 12px #0001
-}
-
-nav a{
-color:var(--green);
-text-decoration:none;
-font-weight:bold;
-padding:5px 10px;
-font-size:14px
-}
-
-main{
-max-width:1050px;
-margin:auto;
-padding:20px 15px
-}
-
-.hero{
-text-align:center;
-padding:30px 12px
-}
-
-.hero h1{
-color:var(--green);
-font-size:30px;
-margin:5px
-}
-
-.hero p{color:#65736b}
-
-.daily{
-background:linear-gradient(135deg,#173b30,#315b46);
-color:white;
-text-align:center;
-padding:28px 18px;
-border-radius:18px;
-margin:15px 0 30px
-}
-
-.daily h2{color:#e4c17d;margin:0 0 12px}
-
-.daily .quote{
-font-size:23px;
-line-height:2
-}
-
-button{
-cursor:pointer;
-border:0;
-border-radius:22px;
-padding:10px 17px;
-background:var(--gold);
-color:#182b22;
-font-weight:bold;
-margin:5px
-}
-
-.search{
-width:100%;
-padding:14px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:16px;
-margin:12px 0 20px
-}
-
-.section-title{
-text-align:center;
-color:var(--green);
-font-size:25px;
-margin:35px 0 18px
-}
-
-.filters{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:7px
-}
-
-.filters button{background:#e8e5d9}
-
-.filters button.active{
-background:var(--green);
-color:white
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:15px
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 18px #172c2010;
-border:1px solid #eee
-}
-
-.card h3{
-color:#9a753b;
-margin:0 0 10px
-}
-
-.card .quote{
-font-size:19px;
-line-height:2
-}
-
-.card .english{
-font-size:16px;
-line-height:1.7
-}
-
-.card .story{
-font-size:17px;
-line-height:2;
-white-space:pre-line
-}
-
-.actions{
-border-top:1px solid #eee;
-margin-top:12px;
-padding-top:8px
-}
-
-.actions button{
-font-size:12px;
-padding:8px 12px
-}
-
-.info{
-background:white;
-padding:25px;
-border-radius:16px;
-margin:25px 0;
-text-align:center
-}
-
-.info h2{color:var(--green)}
-.info a{color:#89662f}
-
-footer{
-background:#10251f;
-color:#eee;
-text-align:center;
-padding:25px 12px;
-margin-top:35px
-}
-
-footer a{color:#e4c17d}
-.hidden{display:none}
-
-@media(max-width:600px){
-.grid{grid-template-columns:1fr !important}
-.card{width:100%}
-nav{
-display:flex;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-gap:10px;
-padding:12px 8px
-}
-nav a{padding:8px 12px;font-size:14px}
-.hero h1{font-size:25px}
-.daily .quote{font-size:20px}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">W.Writes</div>
-<div class="tagline" dir="rtl">الفاظ جو دل میں اتر جائیں۔</div>
-<p>Poetry | Quotes | Islamic Words | Stories</p>
-</header>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#daily">Daily Quote</a>
-<a href="#quotes">Categories</a>
-<a href="#about">About Us</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<main id="home">
-
-<section class="hero">
-<h1>Welcome to W.Writes</h1>
-<p dir="rtl">الفاظ، احساسات، اسلامی تعلیمات اور زندگی کی خوبصورت حقیقتوں کی دنیا میں خوش آمدید۔</p>
-<p>A place where words express what hearts feel.</p>
-</section>
-
-<section class="daily" id="daily">
-<h2>✦ Today's Thought ✦</h2>
-<div class="quote" dir="rtl">ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔</div>
-<button onclick="copyText('ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔')">Copy Quote</button>
-<button onclick="shareText('ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔')">Share Quote</button>
-</section>
-
-<section id="quotes">
-<h2 class="section-title">Explore Our Words</h2>
-
-<input class="search" id="search" type="search"
-placeholder="Search Urdu or English content..." oninput="render()">
-
-<div class="filters">
-<button class="active" onclick="setCategory('All',this)">All</button>
-<button onclick="setCategory('Love',this)">Love</button>
-<button onclick="setCategory('Sad',this)">Sad Poetry</button>
-<button onclick="setCategory('Life',this)">Life Reality</button>
-<button onclick="setCategory('Motivation',this)">Motivation</button>
-<button onclick="setCategory('Poetry',this)">Urdu Poetry</button>
-<button onclick="setCategory('Islamic',this)">Islamic Words</button>
-<button onclick="setCategory('Stories',this)">Stories</button>
-</div>
-
-<div class="grid" id="quoteGrid"></div>
-</section>
-
-<section class="info" id="about">
-<h2>About W.Writes</h2>
-<p dir="rtl">W.Writes ایک ایسا پلیٹ فارم ہے جہاں محبت، اداسی، زندگی کی حقیقتوں، اسلامی اقوال، سبق آموز کہانیوں اور امید کے احساسات کو خوبصورت الفاظ میں بیان کیا جاتا ہے۔ ہمارا مقصد علم، مثبت سوچ اور خوبصورت احساسات کو فروغ دینا ہے۔</p>
-<p>Our mission is to inspire hearts through meaningful words, poetry, Islamic reminders and stories.</p>
-</section>
-
-<section class="info" id="contact">
-<h2>Stay Connected</h2>
-<p dir="rtl">اپنی رائے، تجاویز یا سوالات ہمارے ساتھ شیئر کریں۔</p>
-<p>Email: <a href="mailto:wwrts57@gmail.com">wwrts57@gmail.com</a></p>
-<p>Follow W.Writes on social media for daily content.</p>
-</section>
-
-</main>
-
-<footer>
-<div class="logo">W.Writes</div>
-<p dir="rtl">الفاظ جو دل میں اتر جائیں۔</p>
-<p>© <span id="year"></span> W.Writes. All Rights Reserved.</p>
-<a href="#home">Back to Top ↑</a>
-</footer>
-
-<script>
-
-const quotes=[
-
+const quotes = [
 {cat:"Love",lang:"ur",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
 {cat:"Love",lang:"en",text:"True love is felt in little things, not only in big promises."},
 {cat:"Sad",lang:"ur",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
@@ -387,7 +48,6 @@ const quotes=[
 {cat:"Poetry",lang:"en",text:"Words may fade away, but feelings remain forever."},
 {cat:"Poetry",lang:"en",text:"Behind every quiet soul, there is a beautiful story."},
 
-/* Islamic Words */
 {cat:"Islamic",lang:"ur",text:"اللہ کی رحمت سے کبھی مایوس نہ ہوں، ہر مشکل کے بعد آسانی آتی ہے۔"},
 {cat:"Islamic",lang:"ur",text:"نماز دل کو سکون اور زندگی کو نظم عطا کرتی ہے۔"},
 {cat:"Islamic",lang:"ur",text:"دوسروں کے ساتھ نرمی اور اچھے اخلاق سے پیش آنا بھی نیکی ہے۔"},
@@ -395,16 +55,14 @@ const quotes=[
 {cat:"Islamic",lang:"ur",text:"شکر ادا کرنے والا دل چھوٹی نعمتوں میں بھی خوشی تلاش کر لیتا ہے۔"},
 {cat:"Islamic",lang:"en",text:"Never lose hope in the mercy of Allah."},
 
-/* Stories */
 {cat:"Stories",lang:"ur",title:"ایمانداری کا انعام",text:"ایک گاؤں میں ایک غریب لڑکا رہتا تھا۔ ایک دن اسے راستے میں پیسوں سے بھرا ہوا بٹوہ ملا۔ وہ چاہتا تو اسے اپنے پاس رکھ سکتا تھا، مگر اس نے بٹوے کے مالک کو تلاش کیا اور واپس کر دیا۔ مالک اس کی ایمانداری سے بہت متاثر ہوا۔\n\nسبق: ایمانداری انسان کی سب سے بڑی دولت ہے۔"},
 {cat:"Stories",lang:"ur",title:"ماں کی دعا",text:"ایک نوجوان ہر روز محنت کرتا تھا مگر کامیابی نہیں مل رہی تھی۔ اس کی ماں ہمیشہ اسے حوصلہ دیتی اور دعا کرتی۔ ایک دن اسے اپنی محنت کا بہترین نتیجہ ملا۔ وہ خوشی سے گھر آیا اور ماں کے قدموں میں بیٹھ گیا۔\n\nسبق: والدین کی محبت اور دعاؤں کی قدر کریں۔"},
 {cat:"Stories",lang:"ur",title:"چھوٹی سی نیکی",text:"ایک بچے نے راستے میں ایک پیاسے پرندے کو دیکھا۔ اس نے فوراً ایک برتن میں پانی بھر کر رکھ دیا۔ کچھ دیر بعد پرندہ پانی پی کر اڑ گیا۔ بچے کے چہرے پر خوشی تھی۔\n\nسبق: چھوٹی سی نیکی بھی کسی کے لیے بڑی خوشی بن سکتی ہے۔"},
 {cat:"Stories",lang:"ur",title:"صبر کا پھل",text:"ایک کسان نے اپنے کھیت میں بیج بوئے۔ کئی دن گزر گئے مگر پودے نظر نہ آئے۔ اس نے ہمت نہیں ہاری، پانی دیتا رہا اور محنت کرتا رہا۔ کچھ عرصے بعد کھیت سرسبز ہو گیا۔\n\nسبق: صبر اور مسلسل محنت کامیابی کا راستہ بناتے ہیں۔"},
 {cat:"Stories",lang:"en",title:"The Helpful Friend",text:"One day, a boy saw his friend struggling with a heavy bag. He stopped and helped him carry it home. His friend smiled and thanked him.\n\nMoral: A little kindness can make someone's day better."}
-
 ];
 
-const labels={
+const labels = {
 Love:"Love",
 Sad:"Sad Poetry",
 Life:"Life Reality",
@@ -414,84 +72,128 @@ Islamic:"Islamic Words",
 Stories:"Stories"
 };
 
-let category="All";
+let category = "All";
 
-function setCategory(c,b){
-category=c;
-document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
+function setCategory(c,b) {
+  category = c;
+  document.querySelectorAll(".filters button").forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  render();
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[ch]);
+}
+
+function render() {
+  const searchBox = document.getElementById("search");
+  const term = searchBox ? searchBox.value.toLowerCase().trim() : "";
+
+  const list = quotes.filter(q => {
+    const matchesCategory = category === "All" || q.cat === category;
+    const matchesSearch = (
+      q.text + " " + (q.title || "") + " " + (labels[q.cat] || "")
+    ).toLowerCase().includes(term);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  document.getElementById("quoteGrid").innerHTML = list.map(q => {
+    const isUr = q.lang === "ur";
+    const isStory = q.cat === "Stories";
+    const textClass = isStory ? "story" : (isUr ? "quote" : "english");
+
+    return `
+      <article class="card">
+        <h3>${escapeHTML(q.title || labels[q.cat] || q.cat)}</h3>
+        <div class="${textClass}" ${isUr ? 'dir="rtl"' : ''}>${escapeHTML(q.text)}</div>
+        <div class="actions">
+          <button data-action="copy" data-text="${encodeURIComponent(q.text)}">Copy</button>
+          <button data-action="share" data-text="${encodeURIComponent(q.text)}">Share</button>
+        </div>
+      </article>
+    `;
+  }).join("") || "<p>No content found. Try another search.</p>";
+}
+
+function copyText(t) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t)
+      .then(() => alert("Content copied!"))
+      .catch(() => alert(t));
+  } else {
+    alert(t);
+  }
+}
+
+function shareText(t) {
+  if (navigator.share) {
+    navigator.share({
+      title:"W.Writes",
+      text:t,
+      url:location.href
+    }).catch(() => {});
+  } else {
+    copyText(t);
+  }
+}
+
+// Supabase connection
+const SUPABASE_URL = "https://szfzkihvlshkqhbugwpk.supabase.co";
+const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Load only published content from Supabase
+async function loadPublishedContent() {
+  try {
+    const { data, error } = await db
+      .from("content")
+      .select("category, language, title, body")
+      .eq("status", "published");
+
+    if (error) {
+      console.error("Supabase content error:", error);
+      return;
+    }
+
+    (data || []).forEach(item => {
+      quotes.push({
+        cat:item.category,
+        lang:item.language,
+        title:item.title || "",
+        text:item.body
+      });
+    });
+
+    render();
+
+  } catch (error) {
+    console.error("Website content loading error:", error);
+  }
+}
+
+// Copy and Share buttons
+document.getElementById("quoteGrid").addEventListener("click", function(e) {
+  const btn = e.target.closest("button[data-action]");
+  if (!btn) return;
+
+  const text = decodeURIComponent(btn.dataset.text);
+
+  if (btn.dataset.action === "copy") copyText(text);
+  if (btn.dataset.action === "share") shareText(text);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Show existing content immediately, then load published posts
 render();
-}
-
-function escapeHTML(value){
-return String(value).replace(/[&<>"']/g,function(ch){
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-}[ch];
-});
-}
-
-function render(){
-const term=document.getElementById("search").value.toLowerCase().trim();
-
-const list=quotes.filter(q=>{
-const matchesCategory=category==="All"||q.cat===category;
-const matchesSearch=(q.text+" "+(q.title||"")+" "+labels[q.cat]).toLowerCase().includes(term);
-return matchesCategory&&matchesSearch;
-});
-
-document.getElementById("quoteGrid").innerHTML=list.map(q=>{
-const isUr=q.lang==="ur";
-const isStory=q.cat==="Stories";
-const textClass=isStory?"story":(isUr?"quote":"english");
-
-return `
-<article class="card">
-<h3>${escapeHTML(q.title||labels[q.cat])}</h3>
-<div class="${textClass}" ${isUr?'dir="rtl"':''}>${escapeHTML(q.text)}</div>
-<div class="actions">
-<button data-action="copy" data-text="${encodeURIComponent(q.text)}">Copy</button>
-<button data-action="share" data-text="${encodeURIComponent(q.text)}">Share</button>
-</div>
-</article>`;
-}).join("")||"<p>No content found. Try another search.</p>";
-}
-
-function copyText(t){
-if(navigator.clipboard&&navigator.clipboard.writeText){
-navigator.clipboard.writeText(t)
-.then(()=>alert("Content copied!"))
-.catch(()=>alert(t));
-}else{
-alert(t);
-}
-}
-
-function shareText(t){
-if(navigator.share){
-navigator.share({title:"W.Writes",text:t,url:location.href}).catch(()=>{});
-}else{
-copyText(t);
-}
-}
-
-document.getElementById("quoteGrid").addEventListener("click",function(e){
-const btn=e.target.closest("button[data-action]");
-if(!btn)return;
-
-const text=decodeURIComponent(btn.dataset.text);
-
-if(btn.dataset.action==="copy")copyText(text);
-if(btn.dataset.action==="share")shareText(text);
-});
-
-document.getElementById("year").textContent=new Date().getFullYear();
-render();
+loadPublishedContent();
 
 </script>
-</body>
-</html>
