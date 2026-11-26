@@ -5,29 +5,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>W.Writes | Urdu Poetry, Love Quotes & Sad Poetry</title>
+<title>W.Writes | Urdu Poetry, Islamic Words & Stories</title>
 
-<meta name="description" content="Explore beautiful Urdu poetry, love quotes, sad poetry, life reality, motivation and daily inspirational quotes at W.Writes. Words that touch the heart.">
-
-<meta name="keywords" content="W.Writes, Urdu Poetry, Urdu Quotes, Love Poetry, Sad Poetry, Life Reality, Motivation, Daily Quotes">
-
+<meta name="description" content="Explore Urdu poetry, love quotes, sad poetry, Islamic words, inspirational thoughts and meaningful Urdu stories at W.Writes.">
+<meta name="keywords" content="W.Writes, Urdu Poetry, Islamic Words, Urdu Stories, Love Poetry, Sad Poetry, Urdu Quotes, Motivation">
 <meta name="author" content="W.Writes">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#10251f">
 
 <link rel="canonical" href="https://wwrites.github.io/">
 
-<!-- Social Media Preview -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="W.Writes | Urdu Poetry & Heart Touching Quotes">
-<meta property="og:description" content="Discover beautiful Urdu poetry, love quotes, sad poetry and daily inspirational thoughts at W.Writes.">
+<meta property="og:title" content="W.Writes | Poetry, Islamic Words & Stories">
+<meta property="og:description" content="Beautiful Urdu poetry, Islamic reminders, quotes and meaningful stories.">
 <meta property="og:url" content="https://wwrites.github.io/">
 <meta property="og:site_name" content="W.Writes">
 <meta property="og:locale" content="ur_PK">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="W.Writes | Urdu Poetry & Quotes">
-<meta name="twitter:description" content="Beautiful Urdu poetry, love quotes, sad poetry and daily thoughts.">
+<meta name="twitter:title" content="W.Writes | Poetry & Stories">
+<meta name="twitter:description" content="Urdu poetry, Islamic words, stories and inspirational thoughts.">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPP1H5PETB"></script>
@@ -48,7 +45,6 @@ gtag('config', 'G-EPP1H5PETB');
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -80,10 +76,7 @@ color:#f5e8ce;
 margin:4px
 }
 
-header p{
-color:#e0e8df;
-margin:8px
-}
+header p{color:#e0e8df;margin:8px}
 
 nav{
 background:#fff;
@@ -135,10 +128,7 @@ border-radius:18px;
 margin:15px 0 30px
 }
 
-.daily h2{
-color:#e4c17d;
-margin:0 0 12px
-}
+.daily h2{color:#e4c17d;margin:0 0 12px}
 
 .daily .quote{
 font-size:23px;
@@ -215,6 +205,12 @@ font-size:16px;
 line-height:1.7
 }
 
+.card .story{
+font-size:17px;
+line-height:2;
+white-space:pre-line
+}
+
 .actions{
 border-top:1px solid #eee;
 margin-top:12px;
@@ -235,7 +231,6 @@ text-align:center
 }
 
 .info h2{color:var(--green)}
-
 .info a{color:#89662f}
 
 footer{
@@ -247,17 +242,11 @@ margin-top:35px
 }
 
 footer a{color:#e4c17d}
-
 .hidden{display:none}
 
-@media (max-width:600px){
-
-.grid{
-grid-template-columns:1fr !important
-}
-
+@media(max-width:600px){
+.grid{grid-template-columns:1fr !important}
 .card{width:100%}
-
 nav{
 display:flex;
 justify-content:center;
@@ -266,16 +255,9 @@ flex-wrap:wrap;
 gap:10px;
 padding:12px 8px
 }
-
-nav a{
-padding:8px 12px;
-font-size:14px
-}
-
+nav a{padding:8px 12px;font-size:14px}
 .hero h1{font-size:25px}
-
 .daily .quote{font-size:20px}
-
 }
 </style>
 </head>
@@ -285,13 +267,13 @@ font-size:14px
 <header>
 <div class="logo">W.Writes</div>
 <div class="tagline" dir="rtl">الفاظ جو دل میں اتر جائیں۔</div>
-<p>Urdu & English Poetry | Quotes | Thoughts</p>
+<p>Poetry | Quotes | Islamic Words | Stories</p>
 </header>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#daily">Daily Quote</a>
-<a href="#quotes">Quotes</a>
+<a href="#quotes">Categories</a>
 <a href="#about">About Us</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -300,7 +282,7 @@ font-size:14px
 
 <section class="hero">
 <h1>Welcome to W.Writes</h1>
-<p dir="rtl">الفاظ، احساسات اور زندگی کی خوبصورت حقیقتوں کی دنیا میں خوش آمدید۔</p>
+<p dir="rtl">الفاظ، احساسات، اسلامی تعلیمات اور زندگی کی خوبصورت حقیقتوں کی دنیا میں خوش آمدید۔</p>
 <p>A place where words express what hearts feel.</p>
 </section>
 
@@ -314,7 +296,8 @@ font-size:14px
 <section id="quotes">
 <h2 class="section-title">Explore Our Words</h2>
 
-<input class="search" id="search" type="search" placeholder="Search Urdu or English quotes..." oninput="render()">
+<input class="search" id="search" type="search"
+placeholder="Search Urdu or English content..." oninput="render()">
 
 <div class="filters">
 <button class="active" onclick="setCategory('All',this)">All</button>
@@ -323,6 +306,8 @@ font-size:14px
 <button onclick="setCategory('Life',this)">Life Reality</button>
 <button onclick="setCategory('Motivation',this)">Motivation</button>
 <button onclick="setCategory('Poetry',this)">Urdu Poetry</button>
+<button onclick="setCategory('Islamic',this)">Islamic Words</button>
+<button onclick="setCategory('Stories',this)">Stories</button>
 </div>
 
 <div class="grid" id="quoteGrid"></div>
@@ -330,15 +315,15 @@ font-size:14px
 
 <section class="info" id="about">
 <h2>About W.Writes</h2>
-<p dir="rtl">W.Writes ایک ایسا پلیٹ فارم ہے جہاں محبت، اداسی، زندگی کی حقیقتوں اور امید کے احساسات کو خوبصورت الفاظ میں بیان کیا جاتا ہے۔ ہمارا مقصد ایسے الفاظ شیئر کرنا ہے جو دل کو چھو جائیں اور سوچ میں مثبت تبدیلی لائیں۔</p>
-<p>Our mission is to inspire hearts through meaningful words, poetry and daily thoughts.</p>
+<p dir="rtl">W.Writes ایک ایسا پلیٹ فارم ہے جہاں محبت، اداسی، زندگی کی حقیقتوں، اسلامی اقوال، سبق آموز کہانیوں اور امید کے احساسات کو خوبصورت الفاظ میں بیان کیا جاتا ہے۔ ہمارا مقصد علم، مثبت سوچ اور خوبصورت احساسات کو فروغ دینا ہے۔</p>
+<p>Our mission is to inspire hearts through meaningful words, poetry, Islamic reminders and stories.</p>
 </section>
 
 <section class="info" id="contact">
 <h2>Stay Connected</h2>
 <p dir="rtl">اپنی رائے، تجاویز یا سوالات ہمارے ساتھ شیئر کریں۔</p>
 <p>Email: <a href="mailto:wwrts57@gmail.com">wwrts57@gmail.com</a></p>
-<p>Follow W.Writes on social media for daily poetry and quotes.</p>
+<p>Follow W.Writes on social media for daily content.</p>
 </section>
 
 </main>
@@ -353,6 +338,7 @@ font-size:14px
 <script>
 
 const quotes=[
+
 {cat:"Love",lang:"ur",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
 {cat:"Love",lang:"en",text:"True love is felt in little things, not only in big promises."},
 {cat:"Sad",lang:"ur",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
@@ -384,27 +370,49 @@ const quotes=[
 {cat:"Love",lang:"ur",text:"کچھ رشتے دل میں بستے ہیں، فاصلے انہیں کبھی ختم نہیں کر سکتے۔"},
 {cat:"Love",lang:"en",text:"True love is not about perfection, it is about understanding."},
 {cat:"Love",lang:"en",text:"The right person makes even ordinary moments beautiful."},
-
 {cat:"Sad",lang:"ur",text:"کبھی کبھی دل ٹوٹنے کی آواز صرف انسان خود سنتا ہے۔"},
 {cat:"Sad",lang:"ur",text:"جنہیں ہم اپنا سمجھتے ہیں، کبھی کبھی وہی اجنبی بن جاتے ہیں۔"},
 {cat:"Sad",lang:"en",text:"Some goodbyes hurt more than words can ever explain."},
 {cat:"Sad",lang:"en",text:"A silent heart often carries the loudest pain."},
-
 {cat:"Life",lang:"ur",text:"زندگی کا سب سے بڑا سبق وقت خود سکھاتا ہے۔"},
 {cat:"Life",lang:"ur",text:"ہر مشکل وقت ہمیں ایک نئی پہچان دیتا ہے۔"},
 {cat:"Life",lang:"en",text:"Life becomes easier when you stop expecting too much."},
 {cat:"Life",lang:"en",text:"Your attitude determines how you experience life."},
-
 {cat:"Motivation",lang:"ur",text:"کامیابی ان ہی کو ملتی ہے جو ناکامی سے ہار نہیں مانتے۔"},
 {cat:"Motivation",lang:"ur",text:"اپنے خوابوں پر یقین رکھو، محنت کبھی ضائع نہیں جاتی۔"},
 {cat:"Motivation",lang:"en",text:"Every small step takes you closer to your biggest dream."},
 {cat:"Motivation",lang:"en",text:"Never stop learning, because growth never ends."},
-
 {cat:"Poetry",lang:"ur",text:"دل کی دنیا میں کچھ لوگ خاص رہتے ہیں، دور ہو کر بھی احساس رہتے ہیں۔"},
 {cat:"Poetry",lang:"ur",text:"ہم نے وقت کے ساتھ خود کو بدلنا سیکھ لیا، مگر یادوں کو بھلانا نہیں سیکھا۔"},
 {cat:"Poetry",lang:"en",text:"Words may fade away, but feelings remain forever."},
-{cat:"Poetry",lang:"en",text:"Behind every quiet soul, there is a beautiful story."}
+{cat:"Poetry",lang:"en",text:"Behind every quiet soul, there is a beautiful story."},
+
+/* Islamic Words */
+{cat:"Islamic",lang:"ur",text:"اللہ کی رحمت سے کبھی مایوس نہ ہوں، ہر مشکل کے بعد آسانی آتی ہے۔"},
+{cat:"Islamic",lang:"ur",text:"نماز دل کو سکون اور زندگی کو نظم عطا کرتی ہے۔"},
+{cat:"Islamic",lang:"ur",text:"دوسروں کے ساتھ نرمی اور اچھے اخلاق سے پیش آنا بھی نیکی ہے۔"},
+{cat:"Islamic",lang:"ur",text:"دعا مانگتے رہیں، اللہ ہر پکار سننے والا ہے۔"},
+{cat:"Islamic",lang:"ur",text:"شکر ادا کرنے والا دل چھوٹی نعمتوں میں بھی خوشی تلاش کر لیتا ہے۔"},
+{cat:"Islamic",lang:"en",text:"Never lose hope in the mercy of Allah."},
+
+/* Stories */
+{cat:"Stories",lang:"ur",title:"ایمانداری کا انعام",text:"ایک گاؤں میں ایک غریب لڑکا رہتا تھا۔ ایک دن اسے راستے میں پیسوں سے بھرا ہوا بٹوہ ملا۔ وہ چاہتا تو اسے اپنے پاس رکھ سکتا تھا، مگر اس نے بٹوے کے مالک کو تلاش کیا اور واپس کر دیا۔ مالک اس کی ایمانداری سے بہت متاثر ہوا۔\n\nسبق: ایمانداری انسان کی سب سے بڑی دولت ہے۔"},
+{cat:"Stories",lang:"ur",title:"ماں کی دعا",text:"ایک نوجوان ہر روز محنت کرتا تھا مگر کامیابی نہیں مل رہی تھی۔ اس کی ماں ہمیشہ اسے حوصلہ دیتی اور دعا کرتی۔ ایک دن اسے اپنی محنت کا بہترین نتیجہ ملا۔ وہ خوشی سے گھر آیا اور ماں کے قدموں میں بیٹھ گیا۔\n\nسبق: والدین کی محبت اور دعاؤں کی قدر کریں۔"},
+{cat:"Stories",lang:"ur",title:"چھوٹی سی نیکی",text:"ایک بچے نے راستے میں ایک پیاسے پرندے کو دیکھا۔ اس نے فوراً ایک برتن میں پانی بھر کر رکھ دیا۔ کچھ دیر بعد پرندہ پانی پی کر اڑ گیا۔ بچے کے چہرے پر خوشی تھی۔\n\nسبق: چھوٹی سی نیکی بھی کسی کے لیے بڑی خوشی بن سکتی ہے۔"},
+{cat:"Stories",lang:"ur",title:"صبر کا پھل",text:"ایک کسان نے اپنے کھیت میں بیج بوئے۔ کئی دن گزر گئے مگر پودے نظر نہ آئے۔ اس نے ہمت نہیں ہاری، پانی دیتا رہا اور محنت کرتا رہا۔ کچھ عرصے بعد کھیت سرسبز ہو گیا۔\n\nسبق: صبر اور مسلسل محنت کامیابی کا راستہ بناتے ہیں۔"},
+{cat:"Stories",lang:"en",title:"The Helpful Friend",text:"One day, a boy saw his friend struggling with a heavy bag. He stopped and helped him carry it home. His friend smiled and thanked him.\n\nMoral: A little kindness can make someone's day better."}
+
 ];
+
+const labels={
+Love:"Love",
+Sad:"Sad Poetry",
+Life:"Life Reality",
+Motivation:"Motivation",
+Poetry:"Urdu Poetry",
+Islamic:"Islamic Words",
+Stories:"Stories"
+};
 
 let category="All";
 
@@ -415,21 +423,50 @@ b.classList.add("active");
 render();
 }
 
+function escapeHTML(value){
+return String(value).replace(/[&<>"']/g,function(ch){
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[ch];
+});
+}
+
 function render(){
-const term=document.getElementById("search").value.toLowerCase();
-const list=quotes.filter(q=>(category==="All"||q.cat===category)&&q.text.toLowerCase().includes(term));
+const term=document.getElementById("search").value.toLowerCase().trim();
+
+const list=quotes.filter(q=>{
+const matchesCategory=category==="All"||q.cat===category;
+const matchesSearch=(q.text+" "+(q.title||"")+" "+labels[q.cat]).toLowerCase().includes(term);
+return matchesCategory&&matchesSearch;
+});
 
 document.getElementById("quoteGrid").innerHTML=list.map(q=>{
-const safe=q.text.replace(/'/g,"\\'");
-return `<article class="card"><h3>${q.cat}</h3><div class="${q.lang==="ur"?"quote":"english"}" ${q.lang==="ur"?'dir="rtl"':''}>${q.text}</div><div class="actions"><button onclick="copyText('${safe}')">Copy</button><button onclick="shareText('${safe}')">Share</button></div></article>`;
-}).join("")||"<p>No quotes found. Try another search.</p>";
+const isUr=q.lang==="ur";
+const isStory=q.cat==="Stories";
+const textClass=isStory?"story":(isUr?"quote":"english");
+
+return `
+<article class="card">
+<h3>${escapeHTML(q.title||labels[q.cat])}</h3>
+<div class="${textClass}" ${isUr?'dir="rtl"':''}>${escapeHTML(q.text)}</div>
+<div class="actions">
+<button data-action="copy" data-text="${encodeURIComponent(q.text)}">Copy</button>
+<button data-action="share" data-text="${encodeURIComponent(q.text)}">Share</button>
+</div>
+</article>`;
+}).join("")||"<p>No content found. Try another search.</p>";
 }
 
 function copyText(t){
 if(navigator.clipboard&&navigator.clipboard.writeText){
-navigator.clipboard.writeText(t).then(()=>alert("Quote copied!")).catch(()=>alert(t));
-}
-else{
+navigator.clipboard.writeText(t)
+.then(()=>alert("Content copied!"))
+.catch(()=>alert(t));
+}else{
 alert(t);
 }
 }
@@ -437,11 +474,20 @@ alert(t);
 function shareText(t){
 if(navigator.share){
 navigator.share({title:"W.Writes",text:t,url:location.href}).catch(()=>{});
-}
-else{
+}else{
 copyText(t);
 }
 }
+
+document.getElementById("quoteGrid").addEventListener("click",function(e){
+const btn=e.target.closest("button[data-action]");
+if(!btn)return;
+
+const text=decodeURIComponent(btn.dataset.text);
+
+if(btn.dataset.action==="copy")copyText(text);
+if(btn.dataset.action==="share")shareText(text);
+});
 
 document.getElementById("year").textContent=new Date().getFullYear();
 render();
