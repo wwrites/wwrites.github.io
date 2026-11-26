@@ -1,199 +1,354 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b16">
+  <title>W.Writes | Urdu Poetry, Islamic Words & Stories</title>
+  <meta name="description" content="W.Writes پر اردو شاعری، محبت، اداس شاعری، زندگی کی حقیقت، حوصلہ افزائی، اسلامی باتیں اور سبق آموز کہانیاں پڑھیں۔">
+  <meta name="keywords" content="W.Writes, Urdu Poetry, Urdu Quotes, Sad Poetry, Love Quotes, Islamic Quotes, Urdu Stories, Motivation">
+  <meta name="author" content="W.Writes">
+  <meta property="og:title" content="W.Writes | Words That Touch the Heart">
+  <meta property="og:description" content="اردو شاعری، خوبصورت اقوال، اسلامی باتیں اور سبق آموز کہانیاں۔">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root{--bg:#071b16;--panel:#102820;--panel2:#0c231c;--gold:#d8b66a;--gold2:#f0d99b;--text:#f7f3e9;--muted:#b8c6bd;--line:rgba(216,182,106,.2);--shadow:0 18px 50px rgba(0,0,0,.24)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 85% 0%,#173b2d 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,"Noto Nastaliq Urdu",sans-serif;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(7,27,22,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-size:27px;font-weight:800;letter-spacing:.5px;color:var(--gold2);direction:ltr}
+    .brand span{color:#fff}
+    nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    nav a{font-size:14px;color:var(--muted);transition:.2s}
+    nav a:hover{color:var(--gold2)}
+    .hero{padding:76px 0 50px;text-align:center}
+    .eyebrow{color:var(--gold);font-size:13px;letter-spacing:2px;font-weight:700;direction:ltr}
+    h1{font-size:clamp(34px,6vw,58px);line-height:1.5;margin:12px 0;color:var(--gold2);font-family:"Noto Nastaliq Urdu",serif}
+    .hero p{max-width:680px;margin:0 auto 24px;color:var(--muted);font-size:17px}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{border:1px solid var(--gold);background:var(--gold);color:#14231b;padding:10px 20px;border-radius:999px;font-weight:700;cursor:pointer;font:inherit;font-size:14px}
+    .btn.secondary{background:transparent;color:var(--gold2)}
+    .section{padding:32px 0 56px}
+    .section-head{text-align:center;margin-bottom:26px}
+    .section-head h2{font-family:"Noto Nastaliq Urdu",serif;color:var(--gold2);font-size:29px;margin:0 0 5px}
+    .section-head p{margin:0;color:var(--muted);font-size:14px}
+    .daily{max-width:850px;margin:auto;padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(216,182,106,.12),rgba(16,40,32,.94));box-shadow:var(--shadow);text-align:center}
+    .daily .label{font-size:12px;color:var(--gold);letter-spacing:1.5px;direction:ltr}
+    .daily blockquote{font-family:"Noto Nastaliq Urdu",serif;font-size:clamp(19px,3vw,27px);line-height:2.1;margin:16px 0}
+    .daily .daily-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .tools{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px auto}
+    input,select{background:#102820;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 15px;font:inherit;outline:none}
+    input{width:min(420px,100%)}
+    select{min-width:150px}
+    input::placeholder{color:#91a69a}
+    .categories{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:22px 0 28px}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:7px 15px;color:var(--muted);background:transparent;cursor:pointer;font:inherit;font-size:13px}
+    .chip.active,.chip:hover{background:var(--gold);border-color:var(--gold);color:#17251d}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .quote-card{background:linear-gradient(145deg,#123126,#0d241d);border:1px solid var(--line);border-radius:18px;padding:21px;display:flex;flex-direction:column;min-height:220px;box-shadow:var(--shadow)}
+    .meta{display:flex;justify-content:space-between;gap:8px;color:var(--gold);font-size:11px;margin-bottom:12px}
+    .quote-card h3{font-size:16px;color:var(--gold2);margin:0 0 8px;font-family:"Noto Nastaliq Urdu",serif}
+    .quote-card p{font-family:"Noto Nastaliq Urdu",serif;font-size:17px;line-height:2;margin:0 0 18px;white-space:pre-wrap;overflow-wrap:anywhere}
+    .quote-card p.latin{font-family:Inter,sans-serif;line-height:1.8}
+    .card-actions{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+    .small-btn{background:transparent;border:1px solid var(--line);color:var(--gold2);border-radius:9px;padding:6px 12px;cursor:pointer;font:inherit;font-size:12px}
+    .small-btn:hover{background:rgba(216,182,106,.12)}
+    .empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+    .about-box{max-width:820px;margin:auto;text-align:center;color:var(--muted);background:var(--panel2);border:1px solid var(--line);padding:28px;border-radius:20px}
+    .about-box h2{font-family:"Noto Nastaliq Urdu",serif;color:var(--gold2);margin-top:0}
+    footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:var(--muted);font-size:13px}
+    footer strong{color:var(--gold2);direction:ltr;display:inline-block}
+    .status{font-size:12px;color:var(--muted);text-align:center;min-height:24px;margin:12px 0}
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{padding:12px 0;align-items:flex-start;flex-direction:column}nav{gap:13px}}
+    @media(max-width:540px){.grid{grid-template-columns:1fr}.hero{padding:48px 0 30px}.daily{padding:22px 16px}.section{padding:25px 0 40px}nav a{font-size:12px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#" aria-label="W.Writes Home">W<span>.</span>Writes</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">ہوم</a>
+      <a href="#daily">آج کا قول</a>
+      <a href="#content">اقوال و شاعری</a>
+      <a href="#about">ہمارے بارے میں</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container" id="home">
+    <div class="eyebrow">WORDS THAT TOUCH THE HEART</div>
+    <h1>لفظوں سے دل تک کا سفر</h1>
+    <p>خوبصورت اردو شاعری، محبت بھرے احساسات، زندگی کی حقیقتیں، حوصلہ افزا باتیں، اسلامی پیغام اور سبق آموز کہانیاں — سب ایک جگہ۔</p>
+    <div class="hero-actions">
+      <a class="btn" href="#content">مواد پڑھیں</a>
+      <a class="btn secondary" href="#about">W.Writes کے بارے میں</a>
+    </div>
+  </section>
+
+  <section class="section container" id="daily">
+    <div class="section-head">
+      <h2>آج کا خوبصورت خیال</h2>
+      <p>ہر دن ایک نیا لفظ، ایک نیا احساس</p>
+    </div>
+    <div class="daily">
+      <div class="label">THOUGHT OF THE DAY</div>
+      <blockquote id="dailyText">زندگی خوبصورت تب بنتی ہے جب ہم دوسروں کے لیے آسانیاں پیدا کرتے ہیں۔</blockquote>
+      <div class="daily-actions">
+        <button class="btn" id="dailyCopy" type="button">کاپی کریں</button>
+        <button class="btn secondary" id="dailyShare" type="button">شیئر کریں</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="content">
+    <div class="section-head">
+      <h2>الفاظ، احساسات اور کہانیاں</h2>
+      <p>اپنی پسند کے موضوع کا انتخاب کریں</p>
+    </div>
+    <div class="tools">
+      <input id="searchInput" type="search" placeholder="یہاں تلاش کریں..." aria-label="Search content">
+      <select id="languageFilter" aria-label="Language filter">
+        <option value="all">تمام زبانیں</option>
+        <option value="ur">اردو</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div class="categories" id="categoryButtons">
+      <button class="chip active" data-category="All">تمام</button>
+      <button class="chip" data-category="Love">محبت</button>
+      <button class="chip" data-category="Sad">اداس شاعری</button>
+      <button class="chip" data-category="Life">زندگی کی حقیقت</button>
+      <button class="chip" data-category="Motivation">حوصلہ افزائی</button>
+      <button class="chip" data-category="Poetry">اردو شاعری</button>
+      <button class="chip" data-category="Islamic">اسلامی باتیں</button>
+      <button class="chip" data-category="Stories">کہانیاں</button>
+    </div>
+    <div class="status" id="loadStatus" aria-live="polite">مواد لوڈ ہو رہا ہے...</div>
+    <div class="grid" id="contentGrid"></div>
+  </section>
+
+  <section class="section container" id="about">
+    <div class="about-box">
+      <h2>W.Writes — ہمارے بارے میں</h2>
+      <p>W.Writes ایک ایسا پلیٹ فارم ہے جہاں لفظ صرف پڑھے نہیں جاتے بلکہ محسوس کیے جاتے ہیں۔ ہمارا مقصد اردو شاعری، مثبت سوچ، اسلامی پیغام اور سبق آموز کہانیوں کے ذریعے علم، احساس اور اچھائی کو فروغ دینا ہے۔</p>
+      <p>ہماری کوشش ہے کہ ہر تحریر آپ کے دل تک پہنچے اور آپ کی زندگی میں کوئی خوبصورت خیال شامل کرے۔</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> <strong>W.Writes</strong> — All Rights Reserved</div>
+</footer>
+
 <script>
-const quotes = [
-{cat:"Love",lang:"ur",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
-{cat:"Love",lang:"en",text:"True love is felt in little things, not only in big promises."},
-{cat:"Sad",lang:"ur",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
-{cat:"Sad",lang:"en",text:"Sometimes silence carries the loudest emotions."},
-{cat:"Life",lang:"ur",text:"زندگی ہمیشہ آسان نہیں ہوتی، مگر ہر دن کچھ سکھا جاتا ہے۔"},
-{cat:"Life",lang:"en",text:"Life teaches lessons that no book can explain."},
-{cat:"Motivation",lang:"ur",text:"منزل انہی کو ملتی ہے جو ہمت نہیں ہارتے۔"},
-{cat:"Motivation",lang:"en",text:"Your future is created by what you do today."},
-{cat:"Poetry",lang:"ur",text:"خاموش لبوں پہ بھی اک داستان ہوتی ہے، ہر مسکراہٹ کے پیچھے ایک جان ہوتی ہے۔"},
-{cat:"Poetry",lang:"ur",text:"وقت بدلتا ہے، حالات بدلتے ہیں، بس انسان کو امید نہیں چھوڑنی چاہیے۔"},
-{cat:"Love",lang:"ur",text:"کچھ لوگ دل میں اس طرح اتر جاتے ہیں کہ پھر کبھی نہیں نکلتے۔"},
-{cat:"Motivation",lang:"en",text:"Small steps every day lead to beautiful destinations."},
-{cat:"Life",lang:"ur",text:"اپنی قدر پہچانو، ہر کسی کی رائے تمہاری حقیقت نہیں ہوتی۔"},
-{cat:"Sad",lang:"ur",text:"کبھی کبھی سب کچھ کہنے کے لیے خاموش رہنا پڑتا ہے۔"},
-{cat:"Poetry",lang:"en",text:"Some feelings are too deep for words, yet the heart understands."},
+"use strict";
 
-{cat:"Love",lang:"ur",text:"محبت وہ نہیں جو ہر وقت ساتھ ہو، محبت وہ ہے جو دور رہ کر بھی دل میں رہے۔"},
-{cat:"Love",lang:"en",text:"Some hearts connect without needing a single word."},
-{cat:"Sad",lang:"ur",text:"کچھ لوگ بچھڑ کر بھی دل سے کبھی جدا نہیں ہوتے۔"},
-{cat:"Sad",lang:"en",text:"The deepest pain is often hidden behind the brightest smile."},
-{cat:"Life",lang:"ur",text:"زندگی میں ہر شخص اپنا نہیں ہوتا، کچھ لوگ صرف سبق دینے آتے ہیں۔"},
-{cat:"Life",lang:"en",text:"Not everyone who smiles with you wishes to see you succeed."},
-{cat:"Motivation",lang:"ur",text:"ہمت نہ ہارو، تمہاری منزل تمہارے صبر سے زیادہ دور نہیں۔"},
-{cat:"Motivation",lang:"en",text:"Believe in yourself, even when nobody else does."},
-{cat:"Poetry",lang:"ur",text:"چراغ بن کر جلنا ہے تو اندھیروں سے مت ڈرنا، روشنی ہمیشہ حوصلوں سے پیدا ہوتی ہے۔"},
-{cat:"Poetry",lang:"ur",text:"خاموشیوں میں بھی کئی راز چھپے ہوتے ہیں، کچھ درد لفظوں کے محتاج نہیں ہوتے۔"},
-
-{cat:"Love",lang:"ur",text:"محبت کبھی الفاظ کی محتاج نہیں ہوتی، سچا احساس خاموشی میں بھی سمجھ آتا ہے۔"},
-{cat:"Love",lang:"ur",text:"کچھ رشتے دل میں بستے ہیں، فاصلے انہیں کبھی ختم نہیں کر سکتے۔"},
-{cat:"Love",lang:"en",text:"True love is not about perfection, it is about understanding."},
-{cat:"Love",lang:"en",text:"The right person makes even ordinary moments beautiful."},
-{cat:"Sad",lang:"ur",text:"کبھی کبھی دل ٹوٹنے کی آواز صرف انسان خود سنتا ہے۔"},
-{cat:"Sad",lang:"ur",text:"جنہیں ہم اپنا سمجھتے ہیں، کبھی کبھی وہی اجنبی بن جاتے ہیں۔"},
-{cat:"Sad",lang:"en",text:"Some goodbyes hurt more than words can ever explain."},
-{cat:"Sad",lang:"en",text:"A silent heart often carries the loudest pain."},
-{cat:"Life",lang:"ur",text:"زندگی کا سب سے بڑا سبق وقت خود سکھاتا ہے۔"},
-{cat:"Life",lang:"ur",text:"ہر مشکل وقت ہمیں ایک نئی پہچان دیتا ہے۔"},
-{cat:"Life",lang:"en",text:"Life becomes easier when you stop expecting too much."},
-{cat:"Life",lang:"en",text:"Your attitude determines how you experience life."},
-{cat:"Motivation",lang:"ur",text:"کامیابی ان ہی کو ملتی ہے جو ناکامی سے ہار نہیں مانتے۔"},
-{cat:"Motivation",lang:"ur",text:"اپنے خوابوں پر یقین رکھو، محنت کبھی ضائع نہیں جاتی۔"},
-{cat:"Motivation",lang:"en",text:"Every small step takes you closer to your biggest dream."},
-{cat:"Motivation",lang:"en",text:"Never stop learning, because growth never ends."},
-{cat:"Poetry",lang:"ur",text:"دل کی دنیا میں کچھ لوگ خاص رہتے ہیں، دور ہو کر بھی احساس رہتے ہیں۔"},
-{cat:"Poetry",lang:"ur",text:"ہم نے وقت کے ساتھ خود کو بدلنا سیکھ لیا، مگر یادوں کو بھلانا نہیں سیکھا۔"},
-{cat:"Poetry",lang:"en",text:"Words may fade away, but feelings remain forever."},
-{cat:"Poetry",lang:"en",text:"Behind every quiet soul, there is a beautiful story."},
-
-{cat:"Islamic",lang:"ur",text:"اللہ کی رحمت سے کبھی مایوس نہ ہوں، ہر مشکل کے بعد آسانی آتی ہے۔"},
-{cat:"Islamic",lang:"ur",text:"نماز دل کو سکون اور زندگی کو نظم عطا کرتی ہے۔"},
-{cat:"Islamic",lang:"ur",text:"دوسروں کے ساتھ نرمی اور اچھے اخلاق سے پیش آنا بھی نیکی ہے۔"},
-{cat:"Islamic",lang:"ur",text:"دعا مانگتے رہیں، اللہ ہر پکار سننے والا ہے۔"},
-{cat:"Islamic",lang:"ur",text:"شکر ادا کرنے والا دل چھوٹی نعمتوں میں بھی خوشی تلاش کر لیتا ہے۔"},
-{cat:"Islamic",lang:"en",text:"Never lose hope in the mercy of Allah."},
-
-{cat:"Stories",lang:"ur",title:"ایمانداری کا انعام",text:"ایک گاؤں میں ایک غریب لڑکا رہتا تھا۔ ایک دن اسے راستے میں پیسوں سے بھرا ہوا بٹوہ ملا۔ وہ چاہتا تو اسے اپنے پاس رکھ سکتا تھا، مگر اس نے بٹوے کے مالک کو تلاش کیا اور واپس کر دیا۔ مالک اس کی ایمانداری سے بہت متاثر ہوا۔\n\nسبق: ایمانداری انسان کی سب سے بڑی دولت ہے۔"},
-{cat:"Stories",lang:"ur",title:"ماں کی دعا",text:"ایک نوجوان ہر روز محنت کرتا تھا مگر کامیابی نہیں مل رہی تھی۔ اس کی ماں ہمیشہ اسے حوصلہ دیتی اور دعا کرتی۔ ایک دن اسے اپنی محنت کا بہترین نتیجہ ملا۔ وہ خوشی سے گھر آیا اور ماں کے قدموں میں بیٹھ گیا۔\n\nسبق: والدین کی محبت اور دعاؤں کی قدر کریں۔"},
-{cat:"Stories",lang:"ur",title:"چھوٹی سی نیکی",text:"ایک بچے نے راستے میں ایک پیاسے پرندے کو دیکھا۔ اس نے فوراً ایک برتن میں پانی بھر کر رکھ دیا۔ کچھ دیر بعد پرندہ پانی پی کر اڑ گیا۔ بچے کے چہرے پر خوشی تھی۔\n\nسبق: چھوٹی سی نیکی بھی کسی کے لیے بڑی خوشی بن سکتی ہے۔"},
-{cat:"Stories",lang:"ur",title:"صبر کا پھل",text:"ایک کسان نے اپنے کھیت میں بیج بوئے۔ کئی دن گزر گئے مگر پودے نظر نہ آئے۔ اس نے ہمت نہیں ہاری، پانی دیتا رہا اور محنت کرتا رہا۔ کچھ عرصے بعد کھیت سرسبز ہو گیا۔\n\nسبق: صبر اور مسلسل محنت کامیابی کا راستہ بناتے ہیں۔"},
-{cat:"Stories",lang:"en",title:"The Helpful Friend",text:"One day, a boy saw his friend struggling with a heavy bag. He stopped and helped him carry it home. His friend smiled and thanked him.\n\nMoral: A little kindness can make someone's day better."}
-];
-
-const labels = {
-Love:"Love",
-Sad:"Sad Poetry",
-Life:"Life Reality",
-Motivation:"Motivation",
-Poetry:"Urdu Poetry",
-Islamic:"Islamic Words",
-Stories:"Stories"
-};
-
-let category = "All";
-
-function setCategory(c,b) {
-  category = c;
-  document.querySelectorAll(".filters button").forEach(x => x.classList.remove("active"));
-  b.classList.add("active");
-  render();
-}
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, ch => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[ch]);
-}
-
-function render() {
-  const searchBox = document.getElementById("search");
-  const term = searchBox ? searchBox.value.toLowerCase().trim() : "";
-
-  const list = quotes.filter(q => {
-    const matchesCategory = category === "All" || q.cat === category;
-    const matchesSearch = (
-      q.text + " " + (q.title || "") + " " + (labels[q.cat] || "")
-    ).toLowerCase().includes(term);
-
-    return matchesCategory && matchesSearch;
-  });
-
-  document.getElementById("quoteGrid").innerHTML = list.map(q => {
-    const isUr = q.lang === "ur";
-    const isStory = q.cat === "Stories";
-    const textClass = isStory ? "story" : (isUr ? "quote" : "english");
-
-    return `
-      <article class="card">
-        <h3>${escapeHTML(q.title || labels[q.cat] || q.cat)}</h3>
-        <div class="${textClass}" ${isUr ? 'dir="rtl"' : ''}>${escapeHTML(q.text)}</div>
-        <div class="actions">
-          <button data-action="copy" data-text="${encodeURIComponent(q.text)}">Copy</button>
-          <button data-action="share" data-text="${encodeURIComponent(q.text)}">Share</button>
-        </div>
-      </article>
-    `;
-  }).join("") || "<p>No content found. Try another search.</p>";
-}
-
-function copyText(t) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(t)
-      .then(() => alert("Content copied!"))
-      .catch(() => alert(t));
-  } else {
-    alert(t);
-  }
-}
-
-function shareText(t) {
-  if (navigator.share) {
-    navigator.share({
-      title:"W.Writes",
-      text:t,
-      url:location.href
-    }).catch(() => {});
-  } else {
-    copyText(t);
-  }
-}
-
-// Supabase connection
+/* Supabase connection:
+   Replace the placeholder below with your own sb_publishable_ key.
+   Never put a secret/service_role key in a public website. */
 const SUPABASE_URL = "https://szfzkihvlshkqhbugwpk.supabase.co";
 const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
 
-const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const quotes = [
+  {cat:"Love",lang:"ur",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
+  {cat:"Love",lang:"en",text:"True love is felt in little things, not only in big promises."},
+  {cat:"Love",lang:"ur",text:"سچی محبت دعووں سے نہیں، خلوص اور وفا سے پہچانی جاتی ہے۔"},
+  {cat:"Love",lang:"ur",text:"کسی کے چہرے کی مسکراہٹ بن جانا بھی محبت کی ایک خوبصورت شکل ہے۔"},
+  {cat:"Sad",lang:"ur",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
+  {cat:"Sad",lang:"ur",text:"خاموش رہنے والے ہر شخص کے اندر ایک کہانی ضرور ہوتی ہے۔"},
+  {cat:"Sad",lang:"en",text:"Sometimes silence carries the words the heart cannot say."},
+  {cat:"Sad",lang:"ur",text:"ہر جدائی نفرت نہیں ہوتی، کچھ فاصلے حالات بھی بنا دیتے ہیں۔"},
+  {cat:"Life",lang:"ur",text:"زندگی ہر روز ہمیں کچھ نیا سکھاتی ہے، بس سیکھنے والا دل چاہیے۔"},
+  {cat:"Life",lang:"ur",text:"وقت بدلتا ہے تو انسانوں کے اصل چہرے بھی سامنے آ جاتے ہیں۔"},
+  {cat:"Life",lang:"en",text:"Life becomes lighter when you stop carrying what you cannot control."},
+  {cat:"Life",lang:"ur",text:"دوسروں کے لیے آسانیاں پیدا کریں، زندگی خود خوبصورت لگنے لگے گی۔"},
+  {cat:"Motivation",lang:"ur",text:"کامیابی ایک دن میں نہیں ملتی، مگر ایک دن کی کوشش ضرور رنگ لاتی ہے۔"},
+  {cat:"Motivation",lang:"ur",text:"اپنے خوابوں پر یقین رکھیں، محنت کبھی ضائع نہیں جاتی۔"},
+  {cat:"Motivation",lang:"en",text:"Small steps every day can lead to remarkable journeys."},
+  {cat:"Motivation",lang:"ur",text:"مشکل وقت آپ کو روکنے نہیں، مضبوط بنانے آتا ہے۔"},
+  {cat:"Poetry",lang:"ur",text:"خاموشیوں میں بھی کئی راز چھپے ہوتے ہیں، کچھ درد لفظوں کے محتاج نہیں ہوتے۔"},
+  {cat:"Poetry",lang:"ur",text:"لفظ کم ہوں تو احساس کو بولنے دیا کرو، ہر بات زبان سے کہی نہیں جاتی۔"},
+  {cat:"Poetry",lang:"ur",text:"چاندنی رات میں یادوں کا سفر بھی کتنا عجیب ہوتا ہے۔"},
+  {cat:"Poetry",lang:"en",text:"Some feelings bloom quietly, far beyond the reach of words."},
+  {cat:"Islamic",lang:"ur",text:"اللہ پر بھروسا رکھیں، وہ بہتر وقت اور بہتر راستہ جانتا ہے۔"},
+  {cat:"Islamic",lang:"ur",text:"شکر ادا کرنے والا دل چھوٹی نعمتوں میں بھی خوشی تلاش کر لیتا ہے۔"},
+  {cat:"Islamic",lang:"ur",text:"نرمی اختیار کریں، اچھا اخلاق بھی نیکی کا ایک خوبصورت راستہ ہے۔"},
+  {cat:"Islamic",lang:"en",text:"Let gratitude soften your heart and faith guide your steps."},
+  {cat:"Stories",lang:"ur",title:"چھوٹی سی نیکی",text:"ایک مسافر نے راستے میں ایک پیاسے جانور کو پانی پلایا۔ اس کے پاس دینے کو بہت کچھ نہیں تھا، مگر اس نے اپنی بوتل کا آخری گھونٹ بھی دے دیا۔ اسے احساس ہوا کہ نیکی کے لیے دولت نہیں، نرم دل چاہیے۔ سبق: چھوٹی سی نیکی بھی کسی کے لیے بڑی رحمت بن سکتی ہے۔"},
+  {cat:"Stories",lang:"ur",title:"سچائی کا انعام",text:"ایک بچے کو راستے میں ایک بٹوا ملا۔ اس میں رقم بھی تھی اور ایک شناختی کارڈ بھی۔ بچے نے بٹوا اپنے پاس رکھنے کے بجائے مالک تک پہنچا دیا۔ مالک نے خوش ہو کر انعام دینا چاہا، مگر بچے نے کہا کہ میں نے صرف اپنا فرض ادا کیا ہے۔ سبق: سچائی انسان کی سب سے قیمتی پہچان ہے۔"},
+  {cat:"Stories",lang:"en",title:"The Helpful Seed",text:"A child planted a tiny seed and watered it every day. Weeks passed before a small green shoot appeared. The child learned that good things need patience and care. Lesson: Keep doing small good things; growth takes time."}
+];
 
-// Load only published content from Supabase
-async function loadPublishedContent() {
-  try {
-    const { data, error } = await db
-      .from("content")
-      .select("category, language, title, body")
-      .eq("status", "published");
+const categoryNames = {
+  Love:"محبت", Sad:"اداس شاعری", Life:"زندگی کی حقیقت",
+  Motivation:"حوصلہ افزائی", Poetry:"اردو شاعری",
+  Islamic:"اسلامی باتیں", Stories:"کہانیاں"
+};
 
-    if (error) {
-      console.error("Supabase content error:", error);
-      return;
-    }
+let activeCategory = "All";
+let allContent = [...quotes];
 
-    (data || []).forEach(item => {
-      quotes.push({
-        cat:item.category,
-        lang:item.language,
-        title:item.title || "",
-        text:item.body
-      });
+const grid = document.getElementById("contentGrid");
+const searchInput = document.getElementById("searchInput");
+const languageFilter = document.getElementById("languageFilter");
+const loadStatus = document.getElementById("loadStatus");
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[ch]);
+}
+
+function categoryLabel(cat) {
+  return categoryNames[cat] || cat || "W.Writes";
+}
+
+function renderContent() {
+  const term = searchInput.value.trim().toLocaleLowerCase();
+  const lang = languageFilter.value;
+  const filtered = allContent.filter(item => {
+    const matchesCategory = activeCategory === "All" || item.cat === activeCategory;
+    const matchesLanguage = lang === "all" || item.lang === lang;
+    const searchable = `${item.title || ""} ${item.text || ""} ${categoryLabel(item.cat)}`.toLocaleLowerCase();
+    return matchesCategory && matchesLanguage && searchable.includes(term);
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty">اس تلاش کے مطابق کوئی مواد نہیں ملا۔ کوئی دوسرا لفظ تلاش کریں۔</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map((item, index) => {
+    const text = escapeHTML(item.text);
+    const title = item.title ? `<h3>${escapeHTML(item.title)}</h3>` : "";
+    const langName = item.lang === "en" ? "English" : "اردو";
+    const textClass = item.lang === "en" ? "latin" : "";
+    return `
+      <article class="quote-card">
+        <div class="meta"><span>${escapeHTML(categoryLabel(item.cat))}</span><span>${langName}</span></div>
+        ${title}
+        <p class="${textClass}">${text}</p>
+        <div class="card-actions">
+          <button class="small-btn" type="button" data-action="copy" data-index="${index}">کاپی</button>
+          <button class="small-btn" type="button" data-action="share" data-index="${index}">شیئر</button>
+        </div>
+      </article>`;
+  }).join("");
+
+  grid.querySelectorAll("button[data-action]").forEach(button => {
+    button.addEventListener("click", async () => {
+      const visibleItems = filtered;
+      const item = visibleItems[Number(button.dataset.index)];
+      if (!item) return;
+      const shareText = `${item.title ? item.title + "\n" : ""}${item.text}\n\n— W.Writes`;
+      if (button.dataset.action === "copy") await copyText(shareText);
+      else await shareContent(shareText);
     });
+  });
+}
 
-    render();
-
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    showStatus("کاپی ہو گیا۔");
   } catch (error) {
-    console.error("Website content loading error:", error);
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    try { document.execCommand("copy"); showStatus("کاپی ہو گیا۔"); }
+    catch (e) { showStatus("کاپی نہیں ہو سکا، براہِ کرم متن منتخب کریں۔"); }
+    area.remove();
   }
 }
 
-// Copy and Share buttons
-document.getElementById("quoteGrid").addEventListener("click", function(e) {
-  const btn = e.target.closest("button[data-action]");
-  if (!btn) return;
+async function shareContent(text) {
+  if (navigator.share) {
+    try { await navigator.share({title:"W.Writes", text}); }
+    catch (error) { if (error.name !== "AbortError") showStatus("شیئر نہیں ہو سکا۔"); }
+  } else {
+    await copyText(text);
+    showStatus("شیئرنگ دستیاب نہیں؛ متن کاپی کر دیا گیا ہے۔");
+  }
+}
 
-  const text = decodeURIComponent(btn.dataset.text);
+function showStatus(message) {
+  loadStatus.textContent = message;
+}
 
-  if (btn.dataset.action === "copy") copyText(text);
-  if (btn.dataset.action === "share") shareText(text);
+document.getElementById("categoryButtons").addEventListener("click", event => {
+  const button = event.target.closest("button[data-category]");
+  if (!button) return;
+  activeCategory = button.dataset.category;
+  document.querySelectorAll(".chip").forEach(chip => chip.classList.toggle("active", chip === button));
+  renderContent();
+});
+
+searchInput.addEventListener("input", renderContent);
+languageFilter.addEventListener("change", renderContent);
+
+document.getElementById("dailyCopy").addEventListener("click", () => {
+  copyText(document.getElementById("dailyText").textContent + "\n\n— W.Writes");
+});
+document.getElementById("dailyShare").addEventListener("click", () => {
+  shareContent(document.getElementById("dailyText").textContent + "\n\n— W.Writes");
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+const dailyQuote = quotes[new Date().getDate() % quotes.length];
+document.getElementById("dailyText").textContent = dailyQuote.text;
 
-// Show existing content immediately, then load published posts
-render();
+/* Load only published entries from Supabase. Local content remains visible
+   if the database is unavailable or the key has not yet been configured. */
+async function loadPublishedContent() {
+  if (!window.supabase || !SUPABASE_KEY || SUPABASE_KEY === "YOUR_SUPABASE_PUBLISHABLE_KEY") {
+    loadStatus.textContent = "نمونہ مواد دکھایا جا رہا ہے۔ ڈیٹابیس کنکشن کے لیے اپنی Publishable Key شامل کریں۔";
+    renderContent();
+    return;
+  }
+
+  try {
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const { data, error } = await db
+      .from("content")
+      .select("id, category, language, title, body, status")
+      .eq("status", "published");
+
+    if (error) throw error;
+
+    const databaseContent = (data || []).map(row => ({
+      id: row.id,
+      cat: row.category,
+      lang: row.language,
+      title: row.title || "",
+      text: row.body || ""
+    }));
+
+    const localContent = [...quotes];
+    allContent = [...databaseContent, ...localContent];
+    loadStatus.textContent = databaseContent.length
+      ? `ڈیٹابیس سے ${databaseContent.length} شائع شدہ تحریریں بھی لوڈ ہو گئیں۔`
+      : "نمونہ مواد دکھایا جا رہا ہے۔ نئی تحریریں ایڈمن پینل سے شامل کی جا سکتی ہیں۔";
+    renderContent();
+  } catch (error) {
+    console.error("Supabase content load error:", error);
+    loadStatus.textContent = "ڈیٹابیس سے مواد لوڈ نہیں ہو سکا؛ فی الحال نمونہ مواد دکھایا جا رہا ہے۔";
+    renderContent();
+  }
+}
+
+renderContent();
 loadPublishedContent();
-
 </script>
+</body>
+</html>
