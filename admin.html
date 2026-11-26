@@ -1,1 +1,323 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W.Writes | Admin Panel</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#071b16;color:#f5f5f0;font-family:Arial,sans-serif}
+header{background:#103c30;padding:20px;text-align:center;border-bottom:2px solid #c9a34a}
+header h1{margin:0;color:#e5c16b}
+header p{margin:7px 0 0;color:#ddd}
+.container{max-width:850px;margin:25px auto;padding:15px}
+.panel{background:#102b23;border:1px solid #345b49;border-radius:14px;padding:20px;margin-bottom:18px}
+h2{color:#e5c16b;margin-top:0}
+input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;border-radius:8px;border:1px solid #527363;background:#071b16;color:white;font-size:16px}
+textarea{min-height:120px;resize:vertical}
+label{color:#ddd;font-size:14px}
+button{border:0;border-radius:8px;padding:12px 16px;background:#d0ad58;color:#10251d;font-weight:bold;font-size:15px;cursor:pointer;margin:4px}
+button.secondary{background:#345b49;color:white}
+button.danger{background:#9c3939;color:white}
+button:disabled{opacity:.5}
+.hidden{display:none!important}
+.item{background:#193b30;padding:15px;border-radius:10px;margin:12px 0;overflow-wrap:anywhere}
+.item h3{color:#e5c16b;margin:0 0 8px}
+.meta{font-size:12px;color:#b9c8bd;margin-bottom:10px}
+#message{padding:12px;border-radius:8px;margin:12px 0;display:none;overflow-wrap:anywhere}
+footer{text-align:center;color:#a8b5ac;padding:20px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>W.Writes</h1>
+<p>Admin Content Management System</p>
+</header>
+
+<div class="container">
+
+<div id="login" class="panel">
+<h2>Admin Login</h2>
+<label>Email Address</label>
+<input id="email" type="email" placeholder="Your admin email" autocomplete="username">
+<label>Password</label>
+<input id="password" type="password" placeholder="Your password" autocomplete="current-password">
+<button id="loginBtn">Login to Dashboard</button>
+</div>
+
+<div id="dashboard" class="hidden">
+<div class="panel">
+<h2>Welcome to W.Writes</h2>
+<p>Manage your website content here.</p>
+<button class="secondary" id="refreshBtn">Refresh Content</button>
+<button class="danger" id="logoutBtn">Logout</button>
+</div>
+
+<div class="panel">
+<h2 id="formTitle">Add New Content</h2>
+
+<form id="contentForm">
+<input type="hidden" id="contentId">
+
+<label>Category</label>
+<select id="category" required>
+<option value="Love">Love</option>
+<option value="Sad">Sad Poetry</option>
+<option value="Life">Life Reality</option>
+<option value="Motivation">Motivation</option>
+<option value="Poetry">Urdu Poetry</option>
+<option value="Islamic">Islamic Words</option>
+<option value="Stories">Stories</option>
+</select>
+
+<label>Language</label>
+<select id="language">
+<option value="ur">Urdu</option>
+<option value="en">English</option>
+</select>
+
+<label>Title (Optional)</label>
+<input id="title" type="text" placeholder="Content title">
+
+<label>Poetry / Quote / Story</label>
+<textarea id="body" required placeholder="Write your content here..."></textarea>
+
+<label>Publication Status</label>
+<select id="status">
+<option value="draft">Draft</option>
+<option value="published">Published</option>
+</select>
+
+<button type="submit" id="saveBtn">Save Content</button>
+<button type="button" class="secondary hidden" id="cancelBtn">Cancel Edit</button>
+</form>
+</div>
+
+<div class="panel">
+<h2>All Website Content</h2>
+<div id="contentList">Loading content...</div>
+</div>
+</div>
+
+<div id="message"></div>
+</div>
+
+<footer>© W.Writes | Admin Panel</footer>
+
+<script>
+const SUPABASE_URL = "https://szfzkihvlshkqhbugwpk.supabase.co";
+const SUPABASE_KEY = "sb_publishable_LFVdebe2bhscimYCwkIv8Q_FfOU2vFH";
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const $ = id => document.getElementById(id);
+
+function message(text, error=false){
+  $("message").style.display="block";
+  $("message").style.background=error?"#702d2d":"#20543c";
+  $("message").textContent=text;
+}
+
+function escapeHTML(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#39;"
+  })[char]);
+}
+
+async function checkAdmin(){
+  const {data:{session}} = await db.auth.getSession();
+
+  if(!session){
+    $("login").classList.remove("hidden");
+    $("dashboard").classList.add("hidden");
+    return;
+  }
+
+  const {data,error} = await db.rpc("is_admin");
+
+  if(error || data !== true){
+    await db.auth.signOut();
+    message("This account is not authorized as an admin.",true);
+    return;
+  }
+
+  $("login").classList.add("hidden");
+  $("dashboard").classList.remove("hidden");
+  await loadContent();
+}
+
+$("loginBtn").addEventListener("click",async()=>{
+  const email=$("email").value.trim();
+  const password=$("password").value;
+
+  if(!email || !password){
+    message("Please enter email and password.",true);
+    return;
+  }
+
+  $("loginBtn").disabled=true;
+
+  const {error}=await db.auth.signInWithPassword({
+    email,password
+  });
+
+  $("loginBtn").disabled=false;
+
+  if(error){
+    message(error.message,true);
+    return;
+  }
+
+  await checkAdmin();
+});
+
+async function loadContent(){
+  $("contentList").textContent="Loading...";
+
+  const {data,error}=await db
+    .from("content")
+    .select("*")
+    .order("created_at",{ascending:false});
+
+  if(error){
+    $("contentList").textContent=error.message;
+    return;
+  }
+
+  if(!data.length){
+    $("contentList").textContent="No content added yet.";
+    return;
+  }
+
+  $("contentList").innerHTML=data.map(item=>`
+    <div class="item">
+      <h3>${escapeHTML(item.title || item.category)}</h3>
+      <div class="meta">
+        ${escapeHTML(item.category)} |
+        ${escapeHTML(item.language)} |
+        ${escapeHTML(item.status)}
+      </div>
+      <p>${escapeHTML(item.body).replace(/\n/g,"<br>")}</p>
+      <button data-edit="${item.id}">Edit</button>
+      <button class="danger" data-delete="${item.id}">Delete</button>
+    </div>
+  `).join("");
+}
+
+$("contentForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+
+  const id=$("contentId").value;
+
+  const record={
+    category:$("category").value,
+    language:$("language").value,
+    title:$("title").value.trim() || null,
+    body:$("body").value.trim(),
+    status:$("status").value,
+    updated_at:new Date().toISOString()
+  };
+
+  $("saveBtn").disabled=true;
+
+  let result;
+
+  if(id){
+    result=await db.from("content").update(record).eq("id",id);
+  }else{
+    result=await db.from("content").insert(record);
+  }
+
+  $("saveBtn").disabled=false;
+
+  if(result.error){
+    message(result.error.message,true);
+    return;
+  }
+
+  message(id?"Content updated!":"Content added successfully!");
+  resetForm();
+  await loadContent();
+});
+
+$("contentList").addEventListener("click",async event=>{
+  const editId=event.target.dataset.edit;
+  const deleteId=event.target.dataset.delete;
+
+  if(editId){
+    const {data,error}=await db
+      .from("content")
+      .select("*")
+      .eq("id",editId)
+      .single();
+
+    if(error){
+      message(error.message,true);
+      return;
+    }
+
+    $("contentId").value=data.id;
+    $("category").value=data.category;
+    $("language").value=data.language;
+    $("title").value=data.title || "";
+    $("body").value=data.body;
+    $("status").value=data.status;
+    $("formTitle").textContent="Edit Content";
+    $("saveBtn").textContent="Update Content";
+    $("cancelBtn").classList.remove("hidden");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  if(deleteId){
+    if(!confirm("Are you sure you want to delete this content?"))return;
+
+    const {error}=await db.from("content").delete().eq("id",deleteId);
+
+    if(error){
+      message(error.message,true);
+      return;
+    }
+
+    message("Content deleted.");
+    await loadContent();
+  }
+});
+
+function resetForm(){
+  $("contentForm").reset();
+  $("contentId").value="";
+  $("formTitle").textContent="Add New Content";
+  $("saveBtn").textContent="Save Content";
+  $("cancelBtn").classList.add("hidden");
+}
+
+$("cancelBtn").addEventListener("click",resetForm);
+$("refreshBtn").addEventListener("click",loadContent);
+
+$("logoutBtn").addEventListener("click",async()=>{
+  await db.auth.signOut();
+  resetForm();
+  $("dashboard").classList.add("hidden");
+  $("login").classList.remove("hidden");
+  message("You have logged out.");
+});
+
+db.auth.onAuthStateChange((event,session)=>{
+  if(event==="SIGNED_OUT"){
+    $("dashboard").classList.add("hidden");
+    $("login").classList.remove("hidden");
+  }
+});
+
+checkAdmin();
+</script>
+</body>
+</html>
+
