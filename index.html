@@ -935,8 +935,7 @@ async function loadPublishedContent() {
   console.error("Supabase content load error:",error);
 
   loadStatus.textContent =
-   "ڈیٹابیس سے مواد لوڈ نہیں ہو سکا؛ نمونہ مواد دکھایا جا رہا ہے۔";
-
+   "Database Error: " + (error?.message || String(error));
   allContent = [...quotes];
   renderContent();
  }
