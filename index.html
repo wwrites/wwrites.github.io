@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#071b16">
 
-<title>W.Writes | Urdu Poetry, Islamic Words & Stories</title>
-<meta name="description" content="W.Writes پر اردو شاعری، محبت، اداس شاعری، زندگی کی حقیقت، اسلامی باتیں، خوبصورت اقوال اور سبق آموز کہانیاں پڑھیں۔">
-<meta name="keywords" content="W.Writes, Urdu Poetry, Urdu Quotes, Love Quotes, Sad Poetry, Islamic Quotes, Urdu Stories, Motivation">
+<title>W.Writes | Words That Touch the World</title>
+<meta name="description" content="W.Writes — اردو اور انگریزی شاعری، اقوال، علم، تعلیم، صحت، اسلامی معلومات، کہانیاں اور زندگی سے متعلق مفید تحریریں۔">
+<meta name="keywords" content="W.Writes, World Writes, Urdu Poetry, Knowledge, Education, Medical Information, Urdu Stories, Islamic Words, English Quotes">
 <meta name="author" content="W.Writes">
-<meta property="og:title" content="W.Writes | Words That Touch the Heart">
-<meta property="og:description" content="اردو شاعری، خوبصورت اقوال، اسلامی باتیں اور سبق آموز کہانیاں۔">
+<meta property="og:title" content="W.Writes | Words That Touch the World">
+<meta property="og:description" content="A world of words, ideas, knowledge and stories. الفاظ، خیالات، علم اور کہانیاں۔">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,377 +22,550 @@
 
 <style>
 :root{
---bg:#071b16;
---panel:#102820;
---panel2:#0c231c;
---gold:#d8b66a;
---gold2:#f0d99b;
---text:#f7f3e9;
---muted:#b8c6bd;
---line:rgba(216,182,106,.2);
---shadow:0 18px 50px rgba(0,0,0,.24);
+  --bg:#061812;
+  --bg2:#0a2119;
+  --panel:#102b21;
+  --panel2:#0d251c;
+  --gold:#d8b66a;
+  --gold-light:#f1dda5;
+  --white:#f8f5ed;
+  --muted:#b9c9bf;
+  --line:rgba(216,182,106,.22);
+  --shadow:0 16px 45px rgba(0,0,0,.25);
+  --radius:20px;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
 
 body{
-margin:0;
-background:radial-gradient(circle at 85% 0%,#173b2d 0,transparent 32%),var(--bg);
-color:var(--text);
-font-family:Inter,"Noto Nastaliq Urdu",sans-serif;
-line-height:1.8;
+  margin:0;
+  background:
+    radial-gradient(ellipse at 50% -15%,#1c4935 0%,transparent 48%),
+    var(--bg);
+  color:var(--white);
+  font-family:Inter,"Noto Nastaliq Urdu",sans-serif;
+  line-height:1.8;
 }
 
 a{color:inherit;text-decoration:none}
-.container{width:min(1120px,92%);margin:auto}
+button,input,select{font:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+/* HEADER */
 
 header{
-position:sticky;
-top:0;
-z-index:10;
-background:rgba(7,27,22,.95);
-backdrop-filter:blur(14px);
-border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(6,24,18,.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav{
-min-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:18px;
+  min-height:78px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .brand{
-font-size:28px;
-font-weight:800;
-color:var(--gold2);
-direction:ltr;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  direction:ltr;
+  white-space:nowrap;
 }
 
-.brand span{color:white}
+.brand-symbol{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--gold-light);
+  font-size:26px;
+  font-weight:800;
+  line-height:1;
+}
+
+.brand-name{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.brand-name span{color:var(--gold)}
 
 nav{
-display:flex;
-align-items:center;
-gap:18px;
-flex-wrap:wrap;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:17px;
+  flex-wrap:wrap;
 }
 
 nav a{
-font-size:13px;
-color:var(--muted);
-transition:.2s;
+  color:var(--muted);
+  font-size:13px;
+  transition:.2s;
 }
 
-nav a:hover{color:var(--gold2)}
+nav a:hover{color:var(--gold-light)}
+
+/* HERO */
 
 .hero{
-padding:76px 0 50px;
-text-align:center;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:90px 20px 75px;
+  margin-top:25px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(216,182,106,.12),transparent 48%),
+    linear-gradient(145deg,#123728,#091d15 75%);
+  box-shadow:var(--shadow);
 }
+
+.hero::before{
+  content:"W";
+  position:absolute;
+  left:50%;
+  top:5px;
+  transform:translateX(-50%);
+  font-family:Inter,sans-serif;
+  font-size:250px;
+  font-weight:800;
+  line-height:1;
+  color:rgba(216,182,106,.035);
+  pointer-events:none;
+}
+
+.hero-content{position:relative;z-index:1}
 
 .eyebrow{
-color:var(--gold);
-font-size:13px;
-letter-spacing:2px;
-font-weight:700;
-direction:ltr;
+  direction:ltr;
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:800;
 }
 
-h1{
-font-size:clamp(34px,6vw,58px);
-line-height:1.6;
-margin:12px 0;
-color:var(--gold2);
-font-family:"Noto Nastaliq Urdu",serif;
+.hero h1{
+  margin:18px 0 8px;
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:clamp(35px,6vw,58px);
+  line-height:1.8;
 }
 
-.hero p{
-max-width:700px;
-margin:0 auto 24px;
-color:var(--muted);
-font-size:16px;
+.hero-tagline{
+  direction:ltr;
+  color:var(--white);
+  font-size:clamp(19px,3vw,27px);
+  font-weight:700;
+  letter-spacing:.2px;
+  margin:8px 0;
+}
+
+.hero-urdu-tagline{
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:19px;
+  margin:5px 0 18px;
+}
+
+.hero-description{
+  max-width:760px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:15px;
 }
 
 .hero-actions{
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
-margin-top:24px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
 }
 
 .btn{
-display:inline-block;
-border:1px solid var(--gold);
-background:var(--gold);
-color:#14231b;
-padding:10px 20px;
-border-radius:999px;
-font-weight:700;
-cursor:pointer;
-font:inherit;
-font-size:14px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:11px 22px;
+  border:1px solid var(--gold);
+  border-radius:999px;
+  background:var(--gold);
+  color:#15251b;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
 }
+
+.btn:hover{transform:translateY(-2px);background:var(--gold-light)}
 
 .btn.secondary{
-background:transparent;
-color:var(--gold2);
+  background:transparent;
+  color:var(--gold-light);
 }
 
-.section{padding:32px 0 56px}
+.btn.secondary:hover{background:rgba(216,182,106,.12)}
+
+/* SECTIONS */
+
+.section{padding:62px 0 12px}
 
 .section-head{
-text-align:center;
-margin-bottom:26px;
+  text-align:center;
+  margin-bottom:28px;
 }
 
 .section-head h2{
-font-family:"Noto Nastaliq Urdu",serif;
-color:var(--gold2);
-font-size:29px;
-margin:0 0 5px;
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:29px;
+  margin:0 0 5px;
 }
 
 .section-head p{
-margin:0;
-color:var(--muted);
-font-size:14px;
+  color:var(--muted);
+  font-size:14px;
+  margin:0;
 }
+
+/* DAILY THOUGHT */
 
 .daily{
-max-width:850px;
-margin:auto;
-padding:30px;
-border:1px solid var(--line);
-border-radius:22px;
-background:linear-gradient(135deg,rgba(216,182,106,.12),rgba(16,40,32,.94));
-box-shadow:var(--shadow);
-text-align:center;
+  max-width:880px;
+  margin:auto;
+  padding:32px 25px;
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(216,182,106,.13),var(--panel));
+  box-shadow:var(--shadow);
 }
 
-.daily .label{
-font-size:12px;
-color:var(--gold);
-letter-spacing:1.5px;
-direction:ltr;
+.daily-label{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+  direction:ltr;
 }
 
 .daily blockquote{
-font-family:"Noto Nastaliq Urdu",serif;
-font-size:clamp(19px,3vw,27px);
-line-height:2.1;
-margin:16px 0;
+  font-family:"Noto Nastaliq Urdu",serif;
+  color:var(--white);
+  font-size:clamp(20px,3vw,28px);
+  line-height:2.1;
+  margin:18px 0;
 }
 
 .daily-actions{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
+/* CATEGORY INTRO */
+
+.category-intro{
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  max-width:760px;
+  margin:0 auto 25px;
+}
+
+/* SEARCH */
+
 .tools{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-justify-content:center;
-margin:26px auto;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:25px auto;
 }
 
 input,select{
-background:#102820;
-border:1px solid var(--line);
-color:var(--text);
-border-radius:12px;
-padding:12px 15px;
-font:inherit;
-outline:none;
+  background:var(--panel);
+  color:var(--white);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 15px;
+  outline:none;
 }
 
-input{width:min(420px,100%)}
-select{min-width:150px}
+input{width:min(440px,100%)}
+select{min-width:155px}
 input::placeholder{color:#91a69a}
+input:focus,select:focus{border-color:var(--gold)}
+
+/* CATEGORY CHIPS */
 
 .categories{
-display:flex;
-justify-content:center;
-gap:9px;
-flex-wrap:wrap;
-margin:22px 0 28px;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+  margin:25px 0 30px;
 }
 
 .chip{
-border:1px solid var(--line);
-border-radius:999px;
-padding:7px 15px;
-color:var(--muted);
-background:transparent;
-cursor:pointer;
-font:inherit;
-font-size:13px;
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 15px;
+  font-size:13px;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.chip.active,.chip:hover{
-background:var(--gold);
-border-color:var(--gold);
-color:#17251d;
+.chip:hover,.chip.active{
+  background:var(--gold);
+  color:#15251b;
+  border-color:var(--gold);
 }
+
+/* CONTENT CARDS */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:18px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
 }
 
 .quote-card{
-background:linear-gradient(145deg,#123126,#0d241d);
-border:1px solid var(--line);
-border-radius:18px;
-padding:21px;
-display:flex;
-flex-direction:column;
-min-height:220px;
-box-shadow:var(--shadow);
+  min-width:0;
+  min-height:225px;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(145deg,#123326,#0b2119);
+  box-shadow:var(--shadow);
+  transition:transform .2s,border-color .2s;
+}
+
+.quote-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(216,182,106,.55);
 }
 
 .meta{
-display:flex;
-justify-content:space-between;
-gap:8px;
-color:var(--gold);
-font-size:11px;
-margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  color:var(--gold);
+  font-size:11px;
+  margin-bottom:12px;
 }
 
 .quote-card h3{
-font-size:16px;
-color:var(--gold2);
-margin:0 0 8px;
-font-family:"Noto Nastaliq Urdu",serif;
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:17px;
+  margin:0 0 10px;
 }
 
 .quote-card p{
-font-family:"Noto Nastaliq Urdu",serif;
-font-size:17px;
-line-height:2;
-margin:0 0 18px;
-white-space:pre-wrap;
-overflow-wrap:anywhere;
+  color:var(--white);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:17px;
+  line-height:2.05;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  margin:0 0 20px;
 }
 
 .quote-card p.latin{
-font-family:Inter,sans-serif;
-line-height:1.8;
+  font-family:Inter,sans-serif;
+  font-size:14px;
+  line-height:1.9;
 }
 
 .card-actions{
-display:flex;
-gap:8px;
-margin-top:auto;
-flex-wrap:wrap;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:auto;
 }
 
 .small-btn{
-background:transparent;
-border:1px solid var(--line);
-color:var(--gold2);
-border-radius:9px;
-padding:6px 12px;
-cursor:pointer;
-font:inherit;
-font-size:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--gold-light);
+  padding:7px 13px;
+  font-size:12px;
+  cursor:pointer;
 }
 
 .small-btn:hover{background:rgba(216,182,106,.12)}
 
 .empty{
-grid-column:1/-1;
-text-align:center;
-padding:35px;
-color:var(--muted);
-border:1px dashed var(--line);
-border-radius:16px;
+  grid-column:1/-1;
+  text-align:center;
+  padding:35px 20px;
+  border:1px dashed var(--line);
+  border-radius:16px;
+  color:var(--muted);
 }
 
+.status{
+  min-height:25px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin:12px 0;
+}
+
+/* BRAND AREAS */
+
+.brand-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.brand-card{
+  text-align:center;
+  padding:23px 17px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:17px;
+}
+
+.brand-card .symbol{
+  color:var(--gold);
+  font-size:25px;
+}
+
+.brand-card h3{
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  font-size:19px;
+  margin:5px 0;
+}
+
+.brand-card p{
+  color:var(--muted);
+  font-size:13px;
+  margin:0;
+}
+
+/* ABOUT & CONTACT */
+
 .about-box,.contact-box{
-max-width:820px;
-margin:auto;
-text-align:center;
-color:var(--muted);
-background:var(--panel2);
-border:1px solid var(--line);
-padding:28px;
-border-radius:20px;
+  max-width:880px;
+  margin:auto;
+  padding:30px;
+  text-align:center;
+  color:var(--muted);
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
 }
 
 .about-box h2,.contact-box h2{
-font-family:"Noto Nastaliq Urdu",serif;
-color:var(--gold2);
-margin-top:0;
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  margin:0 0 15px;
+}
+
+.about-box p,.contact-box p{
+  font-size:14px;
+  line-height:2.1;
+}
+
+.about-english{
+  direction:ltr;
+  font-family:Inter,sans-serif;
+  line-height:1.9!important;
 }
 
 .contact-email{
-display:inline-block;
-color:var(--gold2);
-font-family:Inter,sans-serif;
-font-size:18px;
-font-weight:700;
-direction:ltr;
-margin:12px 0;
+  display:inline-block;
+  direction:ltr;
+  color:var(--gold-light);
+  font-size:18px;
+  font-weight:700;
+  margin:10px 0 18px;
 }
+
+/* FOOTER */
 
 footer{
-border-top:1px solid var(--line);
-padding:25px 0;
-text-align:center;
-color:var(--muted);
-font-size:13px;
-}
-
-footer strong{
-color:var(--gold2);
-direction:ltr;
-display:inline-block;
+  margin-top:65px;
+  padding:28px 0;
+  text-align:center;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
 }
 
 .footer-links{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-margin:12px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:15px;
 }
 
-.footer-links a{color:var(--gold2)}
+.footer-links a{color:var(--gold-light)}
+.footer-links a:hover{color:white}
 
-.status{
-font-size:12px;
-color:var(--muted);
-text-align:center;
-min-height:24px;
-margin:12px 0;
+.footer-brand{
+  color:var(--gold-light);
+  direction:ltr;
+  display:inline-block;
+  font-weight:800;
 }
 
-@media(max-width:800px){
-.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.nav{
-padding:12px 0;
-align-items:flex-start;
-flex-direction:column;
-}
-nav{gap:13px}
+.footer-tagline{
+  color:var(--gold-light);
+  font-family:"Noto Nastaliq Urdu",serif;
+  margin-top:8px;
 }
 
-@media(max-width:540px){
-.grid{grid-template-columns:1fr}
-.hero{padding:48px 0 30px}
-.daily{padding:22px 16px}
-.section{padding:25px 0 40px}
-nav a{font-size:12px}
-.contact-email{font-size:16px}
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  nav{justify-content:flex-start}
+}
+
+@media(max-width:560px){
+  .container{width:92%}
+  .hero{padding:55px 16px 45px;margin-top:15px;border-radius:22px}
+  .hero h1{font-size:35px}
+  .hero-description{font-size:13px}
+  .section{padding-top:43px}
+  .section-head h2{font-size:25px}
+  .grid,.brand-grid{grid-template-columns:1fr}
+  .daily{padding:23px 15px}
+  .quote-card{min-height:unset}
+  .nav{gap:9px}
+  nav{gap:10px 14px}
+  nav a{font-size:12px}
+  .brand-name{font-size:23px}
+  .brand-symbol{width:39px;height:39px}
+  .about-box,.contact-box{padding:22px 16px}
+  .contact-email{font-size:16px}
 }
 </style>
 </head>
@@ -400,258 +573,446 @@ nav a{font-size:12px}
 <body>
 
 <header>
-<div class="container nav">
-<a class="brand" href="#home" aria-label="W.Writes Home">W<span>.</span>Writes</a>
+  <div class="container nav">
 
-<nav aria-label="Main navigation">
-<a href="#home">ہوم</a>
-<a href="#daily">آج کا قول</a>
-<a href="#content">اقوال و شاعری</a>
-<a href="#about">ہمارے بارے میں</a>
-<a href="#contact">رابطہ</a>
-</nav>
-</div>
+    <a class="brand" href="#home" aria-label="W.Writes Home">
+      <span class="brand-symbol">W</span>
+      <span class="brand-name">W<span>.</span>Writes</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">ہوم</a>
+      <a href="#daily">آج کا خیال</a>
+      <a href="#content">مواد</a>
+      <a href="#about">ہمارے بارے میں</a>
+      <a href="#contact">رابطہ</a>
+    </nav>
+
+  </div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero container" id="home">
-<div class="eyebrow">WORDS THAT TOUCH THE HEART</div>
-<h1>لفظوں سے دل تک کا سفر</h1>
+  <div class="hero-content">
 
-<p>
-خوبصورت اردو شاعری، محبت بھرے احساسات، زندگی کی حقیقتیں،
-حوصلہ افزا باتیں، اسلامی پیغام اور سبق آموز کہانیاں — سب ایک جگہ۔
-</p>
+    <div class="eyebrow">A WORLD OF WORDS & IDEAS</div>
 
-<div class="hero-actions">
-<a class="btn" href="#content">مواد پڑھیں</a>
-<a class="btn secondary" href="#about">W.Writes کے بارے میں</a>
-</div>
+    <h1>دنیا کے الفاظ، دنیا کے لیے</h1>
+
+    <div class="hero-tagline">
+      Words That Touch the World.
+    </div>
+
+    <div class="hero-urdu-tagline">
+      الفاظ جو دل میں اتر جائیں۔
+    </div>
+
+    <p class="hero-description">
+      W.Writes ایک ایسا پلیٹ فارم ہے جہاں شاعری، خیالات، علم،
+      تعلیم، صحت، اسلامی معلومات اور کہانیاں اردو اور انگریزی
+      میں آپ تک پہنچائی جاتی ہیں۔
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#content">Explore Content</a>
+      <a class="btn secondary" href="#about">Discover W.Writes</a>
+    </div>
+
+  </div>
 </section>
+
+<!-- DAILY THOUGHT -->
 
 <section class="section container" id="daily">
-<div class="section-head">
-<h2>آج کا خوبصورت خیال</h2>
-<p>ہر دن ایک نیا لفظ، ایک نیا احساس</p>
-</div>
 
-<div class="daily">
-<div class="label">THOUGHT OF THE DAY</div>
+  <div class="section-head">
+    <h2>آج کا خوبصورت خیال</h2>
+    <p>ہر دن ایک نیا لفظ، ایک نیا خیال</p>
+  </div>
 
-<blockquote id="dailyText">
-زندگی خوبصورت تب بنتی ہے جب ہم دوسروں کے لیے آسانیاں پیدا کرتے ہیں۔
-</blockquote>
+  <div class="daily">
+    <div class="daily-label">THOUGHT OF THE DAY</div>
 
-<div class="daily-actions">
-<button class="btn" id="dailyCopy" type="button">کاپی کریں</button>
-<button class="btn secondary" id="dailyShare" type="button">شیئر کریں</button>
-</div>
-</div>
+    <blockquote id="dailyText">
+      زندگی خوبصورت تب بنتی ہے جب ہم دوسروں کے لیے آسانیاں پیدا کرتے ہیں۔
+    </blockquote>
+
+    <div class="daily-actions">
+      <button class="btn" id="dailyCopy" type="button">کاپی کریں</button>
+      <button class="btn secondary" id="dailyShare" type="button">شیئر کریں</button>
+    </div>
+  </div>
+
 </section>
+
+<!-- BRAND CATEGORIES -->
+
+<section class="section container" id="areas">
+
+  <div class="section-head">
+    <h2>Explore W.Writes</h2>
+    <p>ایک پلیٹ فارم، علم اور اظہار کے کئی موضوعات</p>
+  </div>
+
+  <div class="brand-grid">
+
+    <article class="brand-card">
+      <div class="symbol">✦</div>
+      <h3>شاعری اور اقوال</h3>
+      <p>Poetry, Quotes & Emotions</p>
+    </article>
+
+    <article class="brand-card">
+      <div class="symbol">◈</div>
+      <h3>علم اور معلومات</h3>
+      <p>Knowledge & General Information</p>
+    </article>
+
+    <article class="brand-card">
+      <div class="symbol">✧</div>
+      <h3>تعلیم</h3>
+      <p>Education & Learning</p>
+    </article>
+
+    <article class="brand-card">
+      <div class="symbol">+</div>
+      <h3>صحت اور میڈیکل</h3>
+      <p>Health & Medical Information</p>
+    </article>
+
+    <article class="brand-card">
+      <div class="symbol">❖</div>
+      <h3>اسلامی باتیں</h3>
+      <p>Islamic Knowledge & Values</p>
+    </article>
+
+    <article class="brand-card">
+      <div class="symbol">◎</div>
+      <h3>کہانیاں اور زندگی</h3>
+      <p>Stories, Life & Society</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTENT -->
 
 <section class="section container" id="content">
-<div class="section-head">
-<h2>الفاظ، احساسات اور کہانیاں</h2>
-<p>اپنی پسند کے موضوع کا انتخاب کریں</p>
-</div>
 
-<div class="tools">
-<input id="searchInput" type="search" placeholder="یہاں تلاش کریں..." aria-label="Search content">
+  <div class="section-head">
+    <h2>الفاظ، علم اور خیالات</h2>
+    <p>اپنی پسند کا موضوع تلاش کریں</p>
+  </div>
 
-<select id="languageFilter" aria-label="Language filter">
-<option value="all">تمام زبانیں</option>
-<option value="ur">اردو</option>
-<option value="en">English</option>
-</select>
-</div>
+  <p class="category-intro">
+    اردو اور انگریزی میں مختلف موضوعات پر تحریریں، معلومات اور خیالات پڑھیں۔
+  </p>
 
-<div class="categories" id="categoryButtons">
-<button class="chip active" data-category="All">تمام</button>
-<button class="chip" data-category="Love">محبت</button>
-<button class="chip" data-category="Sad">اداس شاعری</button>
-<button class="chip" data-category="Life">زندگی کی حقیقت</button>
-<button class="chip" data-category="Motivation">حوصلہ افزائی</button>
-<button class="chip" data-category="Poetry">اردو شاعری</button>
-<button class="chip" data-category="Islamic">اسلامی باتیں</button>
-<button class="chip" data-category="Stories">کہانیاں</button>
-</div>
+  <div class="tools">
 
-<div class="status" id="loadStatus" aria-live="polite">
-مواد لوڈ ہو رہا ہے...
-</div>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="تحریر یا موضوع تلاش کریں..."
+      aria-label="Search content"
+    >
 
-<div class="grid" id="contentGrid"></div>
+    <select id="languageFilter" aria-label="Language filter">
+      <option value="all">تمام زبانیں</option>
+      <option value="ur">اردو</option>
+      <option value="en">English</option>
+    </select>
+
+  </div>
+
+  <div class="categories" id="categoryButtons">
+
+    <button class="chip active" data-category="All">تمام</button>
+    <button class="chip" data-category="Love">محبت</button>
+    <button class="chip" data-category="Sad">اداس شاعری</button>
+    <button class="chip" data-category="Life">زندگی</button>
+    <button class="chip" data-category="Motivation">حوصلہ افزائی</button>
+    <button class="chip" data-category="Poetry">اردو شاعری</button>
+    <button class="chip" data-category="Islamic">اسلامی باتیں</button>
+    <button class="chip" data-category="Stories">کہانیاں</button>
+    <button class="chip" data-category="Knowledge">علم و معلومات</button>
+    <button class="chip" data-category="Education">تعلیم</button>
+    <button class="chip" data-category="Medical">صحت و میڈیکل</button>
+
+  </div>
+
+  <div class="status" id="loadStatus" aria-live="polite">
+    مواد لوڈ ہو رہا ہے...
+  </div>
+
+  <div class="grid" id="contentGrid"></div>
+
 </section>
+
+<!-- ABOUT -->
 
 <section class="section container" id="about">
-<div class="about-box">
-<h2>W.Writes — ہمارے بارے میں</h2>
 
-<p>
-W.Writes ایک ایسا پلیٹ فارم ہے جہاں لفظ صرف پڑھے نہیں جاتے بلکہ محسوس کیے جاتے ہیں۔
-ہمارا مقصد اردو شاعری، مثبت سوچ، اسلامی پیغام اور سبق آموز کہانیوں کے ذریعے علم،
-احساس اور اچھائی کو فروغ دینا ہے۔
-</p>
+  <div class="about-box">
 
-<p>
-ہماری کوشش ہے کہ ہر تحریر آپ کے دل تک پہنچے اور آپ کی زندگی میں کوئی خوبصورت خیال شامل کرے۔
-</p>
+    <h2>W.Writes — ہمارے بارے میں</h2>
 
-<p>
-<strong style="color:var(--gold2)">الفاظ جو دل میں اتر جائیں۔</strong>
-</p>
-</div>
+    <p>
+      W.Writes ایک وسیع ڈیجیٹل پلیٹ فارم ہے جس کا مقصد دنیا بھر کے
+      لوگوں تک الفاظ، خیالات، علم، معلومات اور کہانیاں پہنچانا ہے۔
+    </p>
+
+    <p>
+      ہمارے نام میں W کا مطلب World ہے، جبکہ Writes اس بات کی نمائندگی
+      کرتا ہے کہ دنیا کیا لکھتی، سوچتی، محسوس کرتی اور دوسروں کے ساتھ
+      شیئر کرتی ہے۔
+    </p>
+
+    <p>
+      ہمارا مقصد صرف شاعری یا اقوال تک محدود نہیں۔ ہم تعلیم،
+      عمومی معلومات، صحت، اسلامی موضوعات، مثبت سوچ اور کہانیوں
+      سمیت مختلف موضوعات پر معیاری مواد فراہم کرنا چاہتے ہیں۔
+    </p>
+
+    <p class="about-english">
+      W.Writes is a platform for words, ideas, knowledge, education,
+      stories and meaningful information — connecting people through
+      what the world writes and shares.
+    </p>
+
+    <p style="color:var(--gold-light);font-family:'Noto Nastaliq Urdu',serif">
+      الفاظ جو دل میں اتر جائیں۔
+    </p>
+
+    <p style="color:var(--gold-light);direction:ltr;font-weight:700">
+      Words That Touch the World.
+    </p>
+
+  </div>
+
 </section>
 
+<!-- CONTACT -->
+
 <section class="section container" id="contact">
-<div class="section-head">
-<h2>ہم سے رابطہ کریں</h2>
-<p>آپ کی رائے اور تجاویز ہمارے لیے اہم ہیں</p>
-</div>
 
-<div class="contact-box">
-<h2>Contact W.Writes</h2>
+  <div class="section-head">
+    <h2>ہم سے رابطہ کریں</h2>
+    <p>آپ کی رائے، تجاویز اور تعاون ہمارے لیے اہم ہیں</p>
+  </div>
 
-<p>
-کسی سوال، تجویز یا تعاون کے لیے ہم سے ای میل کے ذریعے رابطہ کریں۔
-</p>
+  <div class="contact-box">
 
-<a class="contact-email" href="mailto:wwrts57@gmail.com">
-wwrts57@gmail.com
-</a>
+    <h2>Contact W.Writes</h2>
 
-<br>
+    <p>
+      کسی سوال، تجویز، اصلاح یا تعاون کے لیے ہم سے رابطہ کریں۔
+    </p>
 
-<a class="btn" href="mailto:wwrts57@gmail.com?subject=W.Writes%20Contact">
-Send Email
-</a>
-</div>
+    <a class="contact-email" href="mailto:wwrts57@gmail.com">
+      wwrts57@gmail.com
+    </a>
+
+    <br>
+
+    <a class="btn" href="mailto:wwrts57@gmail.com?subject=W.Writes%20Contact">
+      Send Email
+    </a>
+
+  </div>
+
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-<div class="container">
 
-<div class="footer-links">
-<a href="#home">Home</a>
-<a href="#content">Content</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-<a href="mailto:wwrts57@gmail.com">Email Us</a>
-</div>
+  <div class="container">
 
-<div>
-© <span id="year"></span>
-<strong>W.Writes</strong> — All Rights Reserved
-</div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#areas">Explore</a>
+      <a href="#content">Content</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:wwrts57@gmail.com">Email Us</a>
+    </div>
 
-<div>الفاظ جو دل میں اتر جائیں۔</div>
-</div>
+    <div>
+      © <span id="year"></span>
+      <span class="footer-brand">W.Writes</span>
+      — All Rights Reserved
+    </div>
+
+    <div class="footer-tagline">
+      الفاظ جو دل میں اتر جائیں۔
+    </div>
+
+    <div style="direction:ltr;margin-top:5px">
+      Words That Touch the World.
+    </div>
+
+  </div>
+
 </footer>
 
 <script>
 "use strict";
 
-/* SUPABASE PUBLIC CONFIGURATION
+/* =========================================
+   SUPABASE PUBLIC CONFIGURATION
    Publishable key only.
-   Never place a secret or service_role key here. */
+   Never use a secret/service_role key here.
+========================================= */
 
-const SUPABASE_URL = "https://szfzkihvlshkqhbugwpk.supabase.co";
-const SUPABASE_KEY = "sb_publishable_LFVdebe2bhscimYCwkIv8Q_FfOU2vFH";
+const SUPABASE_URL =
+  "https://szfzkihvlshkqhbugwpk.supabase.co";
 
-/* CATEGORY LABELS */
+const SUPABASE_KEY =
+  "sb_publishable_LFVdebe2bhscimYCwkIv8Q_FfOU2vFH";
+
+
+/* =========================================
+   CATEGORY LABELS
+========================================= */
 
 const categories = {
- Love:"محبت",
- Sad:"اداس شاعری",
- Life:"زندگی کی حقیقت",
- Motivation:"حوصلہ افزائی",
- Poetry:"اردو شاعری",
- Islamic:"اسلامی باتیں",
- Stories:"کہانیاں"
+  Love:"محبت",
+  Sad:"اداس شاعری",
+  Life:"زندگی کی حقیقت",
+  Motivation:"حوصلہ افزائی",
+  Poetry:"اردو شاعری",
+  Islamic:"اسلامی باتیں",
+  Stories:"کہانیاں",
+  Knowledge:"علم و معلومات",
+  Education:"تعلیم",
+  Medical:"صحت و میڈیکل"
 };
 
-/* RECOGNIZE URDU AND ENGLISH CATEGORY NAMES */
+
+/* =========================================
+   CATEGORY NORMALIZATION
+   Supports old and new category names.
+========================================= */
 
 function normalizeCategory(value) {
- const v = String(value || "").trim().toLowerCase();
 
- const map = {
-  "love":"Love",
-  "محبت":"Love",
+  const v = String(value || "").trim().toLowerCase();
 
-  "sad":"Sad",
-  "sad poetry":"Sad",
-  "اداس":"Sad",
-  "اداس شاعری":"Sad",
+  const map = {
 
-  "life":"Life",
-  "life reality":"Life",
-  "زندگی":"Life",
-  "زندگی کی حقیقت":"Life",
+    "love":"Love",
+    "محبت":"Love",
 
-  "motivation":"Motivation",
-  "حوصلہ افزائی":"Motivation",
+    "sad":"Sad",
+    "sad poetry":"Sad",
+    "اداس":"Sad",
+    "اداس شاعری":"Sad",
 
-  "poetry":"Poetry",
-  "urdu poetry":"Poetry",
-  "شاعری":"Poetry",
-  "اردو شاعری":"Poetry",
+    "life":"Life",
+    "life reality":"Life",
+    "زندگی":"Life",
+    "زندگی کی حقیقت":"Life",
 
-  "islamic":"Islamic",
-  "islamic words":"Islamic",
-  "اسلامی":"Islamic",
-  "اسلامی باتیں":"Islamic",
+    "motivation":"Motivation",
+    "حوصلہ افزائی":"Motivation",
 
-  "stories":"Stories",
-  "story":"Stories",
-  "کہانیاں":"Stories",
-  "کہانی":"Stories"
- };
+    "poetry":"Poetry",
+    "urdu poetry":"Poetry",
+    "شاعری":"Poetry",
+    "اردو شاعری":"Poetry",
 
- return map[v] || String(value || "Other").trim();
+    "islamic":"Islamic",
+    "islamic words":"Islamic",
+    "islamic information":"Islamic",
+    "اسلامی":"Islamic",
+    "اسلامی باتیں":"Islamic",
+
+    "stories":"Stories",
+    "story":"Stories",
+    "کہانیاں":"Stories",
+    "کہانی":"Stories",
+
+    "knowledge":"Knowledge",
+    "general knowledge":"Knowledge",
+    "information":"Knowledge",
+    "علم":"Knowledge",
+    "معلومات":"Knowledge",
+    "علم و معلومات":"Knowledge",
+
+    "education":"Education",
+    "تعلیم":"Education",
+    "تعلیمی":"Education",
+
+    "medical":"Medical",
+    "health":"Medical",
+    "health and medical":"Medical",
+    "صحت":"Medical",
+    "میڈیکل":"Medical",
+    "صحت و میڈیکل":"Medical"
+  };
+
+  return map[v] || String(value || "Other").trim();
 }
 
-/* RECOGNIZE LANGUAGE VALUES */
+
+/* =========================================
+   LANGUAGE NORMALIZATION
+========================================= */
 
 function normalizeLanguage(value) {
- const v = String(value || "").trim().toLowerCase();
 
- if (["en","english"].includes(v)) return "en";
+  const v = String(value || "").trim().toLowerCase();
 
- if (["ur","urdu","اردو"].includes(v)) return "ur";
+  if (["en","english"].includes(v)) return "en";
 
- return "ur";
+  if (["ur","urdu","اردو"].includes(v)) return "ur";
+
+  return "ur";
 }
 
-/* SAMPLE CONTENT */
+
+/* =========================================
+   SAMPLE CONTENT
+   Existing sample content retained.
+========================================= */
 
 const quotes = [
-{cat:"Love",lang:"ur",title:"محبت",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
-{cat:"Love",lang:"ur",title:"خوبصورت احساس",text:"محبت صرف لفظوں کا نام نہیں، یہ احساس، خلوص اور وفا کا نام ہے۔"},
-{cat:"Love",lang:"en",title:"True Love",text:"True love is felt in little things, not only in big promises."},
 
-{cat:"Sad",lang:"ur",title:"خاموش درد",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
-{cat:"Sad",lang:"en",title:"Silent Pain",text:"Sometimes silence carries the loudest pain."},
+  {cat:"Love",lang:"ur",title:"محبت",text:"محبت وہ احساس ہے جو لفظوں کا محتاج نہیں ہوتا۔"},
+  {cat:"Love",lang:"ur",title:"خوبصورت احساس",text:"محبت صرف لفظوں کا نام نہیں، یہ احساس، خلوص اور وفا کا نام ہے۔"},
+  {cat:"Love",lang:"en",title:"True Love",text:"True love is felt in little things, not only in big promises."},
 
-{cat:"Life",lang:"ur",title:"زندگی کی حقیقت",text:"زندگی ہر روز ہمیں ایک نیا سبق سکھاتی ہے، بس سیکھنے کا حوصلہ ہونا چاہیے۔"},
-{cat:"Life",lang:"en",title:"Life Lesson",text:"Life teaches us something new every day. Stay willing to learn."},
+  {cat:"Sad",lang:"ur",title:"خاموش درد",text:"کچھ درد ایسے ہوتے ہیں جو مسکراہٹ کے پیچھے چھپ جاتے ہیں۔"},
+  {cat:"Sad",lang:"en",title:"Silent Pain",text:"Sometimes silence carries the loudest pain."},
 
-{cat:"Motivation",lang:"ur",title:"حوصلہ",text:"ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔"},
-{cat:"Motivation",lang:"en",title:"Keep Going",text:"Small steps every day can lead to extraordinary journeys."},
+  {cat:"Life",lang:"ur",title:"زندگی کی حقیقت",text:"زندگی ہر روز ہمیں ایک نیا سبق سکھاتی ہے، بس سیکھنے کا حوصلہ ہونا چاہیے۔"},
+  {cat:"Life",lang:"en",title:"Life Lesson",text:"Life teaches us something new every day. Stay willing to learn."},
 
-{cat:"Poetry",lang:"ur",title:"اردو شاعری",text:"لفظوں میں چھپی ہوتی ہیں دل کی ہزاروں کہانیاں۔"},
-{cat:"Poetry",lang:"en",title:"Words",text:"Words can express what the heart struggles to say."},
+  {cat:"Motivation",lang:"ur",title:"حوصلہ",text:"ہر خواب اپنے وقت پر کھلتا ہے؛ خود کو دوسروں کی رفتار سے مت پرکھو۔"},
+  {cat:"Motivation",lang:"en",title:"Keep Going",text:"Small steps every day can lead to extraordinary journeys."},
 
-{cat:"Islamic",lang:"ur",title:"اللہ پر بھروسہ",text:"اللہ پر بھروسہ رکھیں، بے شک ہر مشکل کے بعد آسانی ہے۔"},
-{cat:"Islamic",lang:"ur",title:"شکر",text:"شکر ادا کرنے والا دل ہمیشہ سکون کے قریب رہتا ہے۔"},
-{cat:"Islamic",lang:"en",title:"Gratitude",text:"A grateful heart finds blessings even in simple moments."},
+  {cat:"Poetry",lang:"ur",title:"اردو شاعری",text:"لفظوں میں چھپی ہوتی ہیں دل کی ہزاروں کہانیاں۔"},
+  {cat:"Poetry",lang:"en",title:"Words",text:"Words can express what the heart struggles to say."},
 
-{cat:"Stories",lang:"ur",title:"ایک چھوٹی سی نیکی",text:"ایک شخص نے راستے سے پتھر ہٹا دیا تاکہ کسی کو تکلیف نہ ہو۔ اسے معلوم نہیں تھا کہ اس کی یہی چھوٹی سی نیکی کسی دوسرے کے لیے کتنی بڑی آسانی بن جائے گی۔"},
-{cat:"Stories",lang:"en",title:"A Small Kindness",text:"A small act of kindness can make someone's entire day brighter."}
+  {cat:"Islamic",lang:"ur",title:"اللہ پر بھروسہ",text:"اللہ پر بھروسہ رکھیں، بے شک ہر مشکل کے بعد آسانی ہے۔"},
+  {cat:"Islamic",lang:"ur",title:"شکر",text:"شکر ادا کرنے والا دل ہمیشہ سکون کے قریب رہتا ہے۔"},
+  {cat:"Islamic",lang:"en",title:"Gratitude",text:"A grateful heart finds blessings even in simple moments."},
+
+  {cat:"Stories",lang:"ur",title:"ایک چھوٹی سی نیکی",text:"ایک شخص نے راستے سے پتھر ہٹا دیا تاکہ کسی کو تکلیف نہ ہو۔ اسے معلوم نہیں تھا کہ اس کی یہی چھوٹی سی نیکی کسی دوسرے کے لیے کتنی بڑی آسانی بن جائے گی۔"},
+  {cat:"Stories",lang:"en",title:"A Small Kindness",text:"A small act of kindness can make someone's entire day brighter."}
+
 ];
+
+
+/* =========================================
+   APP STATE
+========================================= */
 
 let allContent = [...quotes];
 let activeCategory = "All";
@@ -661,287 +1022,381 @@ const searchInput = document.getElementById("searchInput");
 const languageFilter = document.getElementById("languageFilter");
 const loadStatus = document.getElementById("loadStatus");
 
-/* CATEGORY DISPLAY */
+
+/* =========================================
+   CATEGORY DISPLAY
+========================================= */
 
 function categoryName(cat) {
- return categories[cat] || cat || "W.Writes";
+  return categories[cat] || cat || "W.Writes";
 }
 
-/* REMOVE DUPLICATE CONTENT */
+
+/* =========================================
+   REMOVE DUPLICATES
+========================================= */
 
 function removeDuplicates(items) {
- const seen = new Set();
 
- return items.filter(item => {
-  const signature = [
-   item.cat,
-   item.lang,
-   item.title,
-   item.text
-  ].join("|").toLowerCase();
+  const seen = new Set();
 
-  if (seen.has(signature)) return false;
+  return items.filter(item => {
 
-  seen.add(signature);
-  return true;
- });
+    const signature = [
+      item.cat,
+      item.lang,
+      item.title,
+      item.text
+    ].join("|").toLowerCase();
+
+    if (seen.has(signature)) return false;
+
+    seen.add(signature);
+    return true;
+  });
 }
 
-/* RENDER CONTENT */
+
+/* =========================================
+   RENDER CONTENT
+========================================= */
 
 function renderContent() {
- const search = searchInput.value.trim().toLowerCase();
- const lang = languageFilter.value;
 
- const filtered = allContent.filter(item => {
-  const categoryMatch =
-   activeCategory === "All" || item.cat === activeCategory;
+  const search = searchInput.value.trim().toLowerCase();
+  const lang = languageFilter.value;
 
-  const languageMatch =
-   lang === "all" || item.lang === lang;
+  const filtered = allContent.filter(item => {
 
-  const text =
-   `${item.title || ""} ${item.text || ""} ${categoryName(item.cat)}`.toLowerCase();
+    const categoryMatch =
+      activeCategory === "All" || item.cat === activeCategory;
 
-  return categoryMatch && languageMatch && text.includes(search);
- });
+    const languageMatch =
+      lang === "all" || item.lang === lang;
 
- contentGrid.replaceChildren();
+    const searchableText =
+      `${item.title || ""} ${item.text || ""} ${categoryName(item.cat)}`.toLowerCase();
 
- if (!filtered.length) {
-  const empty = document.createElement("div");
-  empty.className = "empty";
-  empty.textContent = "معذرت! اس موضوع پر فی الحال کوئی تحریر موجود نہیں۔";
-  contentGrid.appendChild(empty);
-  return;
- }
+    return categoryMatch &&
+           languageMatch &&
+           searchableText.includes(search);
+  });
 
- filtered.forEach(item => {
-  const card = document.createElement("article");
-  card.className = "quote-card";
+  contentGrid.replaceChildren();
 
-  const meta = document.createElement("div");
-  meta.className = "meta";
+  if (!filtered.length) {
 
-  const category = document.createElement("span");
-  category.textContent = categoryName(item.cat);
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent =
+      "معذرت! اس موضوع پر فی الحال کوئی تحریر موجود نہیں۔";
 
-  const language = document.createElement("span");
-  language.textContent = item.lang === "en" ? "English" : "اردو";
-
-  meta.append(category, language);
-
-  const heading = document.createElement("h3");
-  heading.textContent = item.title || categoryName(item.cat);
-
-  const paragraph = document.createElement("p");
-  paragraph.textContent = String(item.text || "");
-
-  if (item.lang === "en") {
-   paragraph.classList.add("latin");
-   paragraph.dir = "ltr";
-  } else {
-   paragraph.dir = "rtl";
+    contentGrid.appendChild(empty);
+    return;
   }
 
-  const actions = document.createElement("div");
-  actions.className = "card-actions";
+  filtered.forEach(item => {
 
-  const copyButton = document.createElement("button");
-  copyButton.className = "small-btn";
-  copyButton.type = "button";
-  copyButton.textContent = "کاپی";
+    const card = document.createElement("article");
+    card.className = "quote-card";
 
-  copyButton.addEventListener("click", () => {
-   copyText(
-    `${item.title ? item.title + "\n" : ""}${item.text}\n\n— W.Writes`
-   );
+    const meta = document.createElement("div");
+    meta.className = "meta";
+
+    const category = document.createElement("span");
+    category.textContent = categoryName(item.cat);
+
+    const language = document.createElement("span");
+    language.textContent =
+      item.lang === "en" ? "English" : "اردو";
+
+    meta.append(category,language);
+
+    const heading = document.createElement("h3");
+    heading.textContent =
+      item.title || categoryName(item.cat);
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = String(item.text || "");
+
+    if (item.lang === "en") {
+      paragraph.classList.add("latin");
+      paragraph.dir = "ltr";
+    } else {
+      paragraph.dir = "rtl";
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "card-actions";
+
+    const copyButton = document.createElement("button");
+    copyButton.className = "small-btn";
+    copyButton.type = "button";
+    copyButton.textContent = "کاپی کریں";
+
+    copyButton.addEventListener("click",() => {
+      copyText(
+        `${item.title ? item.title + "\n" : ""}${item.text}\n\n— W.Writes`
+      );
+    });
+
+    const shareButton = document.createElement("button");
+    shareButton.className = "small-btn";
+    shareButton.type = "button";
+    shareButton.textContent = "شیئر کریں";
+
+    shareButton.addEventListener("click",() => {
+      shareContent(
+        `${item.title ? item.title + "\n" : ""}${item.text}\n\n— W.Writes`
+      );
+    });
+
+    actions.append(copyButton,shareButton);
+
+    card.append(meta,heading,paragraph,actions);
+
+    contentGrid.appendChild(card);
   });
-
-  const shareButton = document.createElement("button");
-  shareButton.className = "small-btn";
-  shareButton.type = "button";
-  shareButton.textContent = "شیئر";
-
-  shareButton.addEventListener("click", () => {
-   shareContent(
-    `${item.title ? item.title + "\n" : ""}${item.text}\n\n— W.Writes`
-   );
-  });
-
-  actions.append(copyButton, shareButton);
-  card.append(meta, heading, paragraph, actions);
-
-  contentGrid.appendChild(card);
- });
 }
 
-/* COPY TEXT */
+
+/* =========================================
+   COPY TEXT
+========================================= */
 
 async function copyText(text) {
- try {
-  if (navigator.clipboard && window.isSecureContext) {
-   await navigator.clipboard.writeText(text);
-  } else {
-   const area = document.createElement("textarea");
-   area.value = text;
-   area.style.position = "fixed";
-   area.style.opacity = "0";
 
-   document.body.appendChild(area);
-   area.focus();
-   area.select();
+  try {
 
-   const success = document.execCommand("copy");
-   area.remove();
+    if (navigator.clipboard && window.isSecureContext) {
 
-   if (!success) throw new Error("Copy failed");
+      await navigator.clipboard.writeText(text);
+
+    } else {
+
+      const area = document.createElement("textarea");
+
+      area.value = text;
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+
+      const success = document.execCommand("copy");
+
+      area.remove();
+
+      if (!success) throw new Error("Copy failed");
+    }
+
+    showStatus("متن کامیابی سے کاپی ہو گیا۔");
+
+  } catch(error) {
+
+    showStatus("کاپی نہیں ہو سکا۔ دوبارہ کوشش کریں۔");
   }
-
-  showStatus("متن کامیابی سے کاپی ہو گیا۔");
-
- } catch(error) {
-  showStatus("کاپی نہیں ہو سکا۔ دوبارہ کوشش کریں۔");
- }
 }
 
-/* SHARE CONTENT */
+
+/* =========================================
+   SHARE CONTENT
+========================================= */
 
 async function shareContent(text) {
- if (navigator.share) {
-  try {
-   await navigator.share({
-    title:"W.Writes",
-    text:text
-   });
-  } catch(error) {
-   if (error.name !== "AbortError") {
-    showStatus("شیئر نہیں ہو سکا۔");
-   }
+
+  if (navigator.share) {
+
+    try {
+
+      await navigator.share({
+        title:"W.Writes",
+        text:text
+      });
+
+    } catch(error) {
+
+      if (error.name !== "AbortError") {
+        showStatus("شیئر نہیں ہو سکا۔");
+      }
+    }
+
+  } else {
+
+    await copyText(text);
+    showStatus("متن کاپی کر دیا گیا ہے۔");
   }
- } else {
-  await copyText(text);
-  showStatus("شیئرنگ دستیاب نہیں؛ متن کاپی کر دیا گیا ہے۔");
- }
 }
 
-/* STATUS MESSAGE */
+
+/* =========================================
+   STATUS MESSAGE
+========================================= */
 
 function showStatus(message) {
- loadStatus.textContent = message;
+  loadStatus.textContent = message;
 }
 
-/* CATEGORY BUTTONS */
 
-document.getElementById("categoryButtons").addEventListener("click",event => {
- const button = event.target.closest("button[data-category]");
+/* =========================================
+   CATEGORY FILTER
+========================================= */
 
- if (!button) return;
+document
+  .getElementById("categoryButtons")
+  .addEventListener("click",event => {
 
- activeCategory = button.dataset.category;
+    const button = event.target.closest("button[data-category]");
 
- document.querySelectorAll(".chip").forEach(chip => {
-  chip.classList.toggle("active",chip === button);
- });
+    if (!button) return;
 
- renderContent();
-});
+    activeCategory = button.dataset.category;
 
-/* SEARCH AND LANGUAGE FILTER */
+    document.querySelectorAll(".chip").forEach(chip => {
+      chip.classList.toggle("active",chip === button);
+    });
+
+    renderContent();
+  });
+
+
+/* =========================================
+   SEARCH AND LANGUAGE
+========================================= */
 
 searchInput.addEventListener("input",renderContent);
 languageFilter.addEventListener("change",renderContent);
 
-/* DAILY QUOTE BUTTONS */
 
-document.getElementById("dailyCopy").addEventListener("click",() => {
- copyText(
-  document.getElementById("dailyText").textContent + "\n\n— W.Writes"
- );
-});
+/* =========================================
+   DAILY THOUGHT BUTTONS
+========================================= */
 
-document.getElementById("dailyShare").addEventListener("click",() => {
- shareContent(
-  document.getElementById("dailyText").textContent + "\n\n— W.Writes"
- );
-});
+document
+  .getElementById("dailyCopy")
+  .addEventListener("click",() => {
 
-/* FOOTER YEAR */
+    copyText(
+      document.getElementById("dailyText").textContent +
+      "\n\n— W.Writes"
+    );
+  });
+
+document
+  .getElementById("dailyShare")
+  .addEventListener("click",() => {
+
+    shareContent(
+      document.getElementById("dailyText").textContent +
+      "\n\n— W.Writes"
+    );
+  });
+
+
+/* =========================================
+   FOOTER YEAR
+========================================= */
 
 document.getElementById("year").textContent =
- new Date().getFullYear();
+  new Date().getFullYear();
 
-/* DAILY QUOTE */
 
-const dailyQuote = quotes[new Date().getDate() % quotes.length];
+/* =========================================
+   DAILY THOUGHT
+========================================= */
+
+const dailyQuote = quotes[
+  new Date().getDate() % quotes.length
+];
 
 document.getElementById("dailyText").textContent =
- dailyQuote.text;
+  dailyQuote.text;
 
-/* LOAD PUBLISHED CONTENT FROM SUPABASE
-   Table: content
-   Fields: id, category, language, title, body, status
 
-   Public website reads published content only.
-*/
+/* =========================================
+   LOAD PUBLISHED CONTENT FROM SUPABASE
+
+   Existing database table: content
+   Existing fields:
+   id, category, language, title, body, status
+
+   Reads published records only.
+========================================= */
 
 async function loadPublishedContent() {
 
- if (!window.supabase) {
-  loadStatus.textContent =
-   "نمونہ مواد دکھایا جا رہا ہے۔";
-  renderContent();
-  return;
- }
+  if (!window.supabase) {
 
- try {
+    loadStatus.textContent =
+      "نمونہ مواد دکھایا جا رہا ہے۔";
 
-  const db = window.supabase.createClient(
-   SUPABASE_URL,
-   SUPABASE_KEY
-  );
+    renderContent();
+    return;
+  }
 
-  const {data,error} = await db
-   .from("content")
-   .select("id, category, language, title, body, status")
-   .eq("status","published");
+  try {
 
-  if (error) throw error;
+    const db = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
 
-  const databaseContent = (data || []).map(row => ({
-   id:row.id,
-   cat:normalizeCategory(row.category),
-   lang:normalizeLanguage(row.language),
-   title:row.title || "",
-   text:row.body || ""
-  }));
+    const {data,error} = await db
+      .from("content")
+      .select("id, category, language, title, body, status")
+      .eq("status","published");
 
-  /* Combine database content and sample content.
-     Duplicate text is displayed only once. */
+    if (error) throw error;
 
-  allContent = removeDuplicates([
-   ...databaseContent,
-   ...quotes
-  ]);
+    const databaseContent = (data || []).map(row => ({
 
-  loadStatus.textContent = databaseContent.length
-   ? `ڈیٹابیس سے ${databaseContent.length} شائع شدہ تحریریں لوڈ ہو گئیں۔`
-   : "نمونہ مواد دکھایا جا رہا ہے۔ نئی تحریریں ایڈمن پینل سے شامل کریں۔";
+      id:row.id,
 
-  renderContent();
+      cat:normalizeCategory(row.category),
 
- } catch(error) {
+      lang:normalizeLanguage(row.language),
 
-  console.error("Supabase content load error:",error);
+      title:row.title || "",
 
-  loadStatus.textContent =
-   "Database Error: " + (error?.message || String(error));
-  allContent = [...quotes];
-  renderContent();
- }
+      text:row.body || ""
+
+    }));
+
+    /*
+      Keep database records and existing sample content.
+      Duplicate records are displayed only once.
+    */
+
+    allContent = removeDuplicates([
+      ...databaseContent,
+      ...quotes
+    ]);
+
+    loadStatus.textContent = databaseContent.length
+      ? `ڈیٹابیس سے ${databaseContent.length} شائع شدہ تحریریں لوڈ ہو گئیں۔`
+      : "ڈیٹابیس میں ابھی شائع شدہ تحریریں موجود نہیں۔ نمونہ مواد دکھایا جا رہا ہے۔";
+
+    renderContent();
+
+  } catch(error) {
+
+    console.error("Supabase content load error:",error);
+
+    loadStatus.textContent =
+      "Database Error: " +
+      (error?.message || String(error));
+
+    allContent = [...quotes];
+
+    renderContent();
+  }
 }
 
-/* INITIAL LOAD */
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
 
 renderContent();
 loadPublishedContent();
